@@ -31,6 +31,15 @@ namespace Poker_Tournament_App
             setRankChips(inRankChips);
         }
 
+        public void setName(string inName)
+        {
+            name = inName;
+        }
+
+        public string getName()
+        {
+            return name;
+        }
 
     }
 }
