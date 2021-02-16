@@ -57,16 +57,6 @@ public class Tournament
     setMaxPlayers(inMaxPlayers);
   }
 
-  /*
-  public void printTournament()
-  {
-    Console.WriteLine("Name:\t\t" + getName());
-    Console.WriteLine("Date:\t\t" + getDate().ToString("d"));
-    Console.WriteLine("Location\t" + getLocation());
-    Console.WriteLine("Max Players\t" + getMaxPlayers());
-  }
-  */
-
   public void setName(string inName)
   {
     name = inName;
