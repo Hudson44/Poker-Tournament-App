@@ -11,6 +11,7 @@ namespace Poker_Tournament_App
         Console.WriteLine("1: Tournaments");
         Console.WriteLine("2: Players");
         Console.WriteLine("3: Overall Stats");
+        Console.WriteLine("4: Save & Quit");
         selection = Console.ReadLine();
         
         if (selection == "1")
@@ -24,6 +25,10 @@ namespace Poker_Tournament_App
         else if(selection == "3")
         {
             Console.WriteLine("Overall Stats.");
+        }
+        else if(selection == "4")
+        {
+            Console.WriteLine("Byeeeeeeeeeeeeeee");
         }
     }
     }
