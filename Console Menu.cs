@@ -12,15 +12,15 @@ class MainClass {
         
         if (selection == "1")
         {
-            Console.WriteLine("Tournaments.")
+            Console.WriteLine("Tournaments.");
         }
         else if(selection == "2")
         {
-            Console.WriteLine("Players.")
+            Console.WriteLine("Players.");
         }
         else if(selection == "3")
         {
-            Console.WriteLine("Overall Stats.")
+            Console.WriteLine("Overall Stats.");
         }
     }
 }
