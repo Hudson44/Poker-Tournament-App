@@ -80,5 +80,17 @@ namespace Poker_Tournament_App
         {
             return rankChips;
         }
+
+        public void updateWinningHandCount(string inHandType)
+        {
+            if(winningHandCount.ContainsKey(inHandType))
+            {
+            winningHandCount[inHandType] = winningHandCount[inHandType] + 1;
+            }
+            else
+            {
+            winningHandCount.Add(inHandType, 1);
+            }
+        }
     }
 }
