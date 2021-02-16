@@ -50,6 +50,7 @@ namespace Poker_Tournament_App
         {
             return dateJoined;
         }
+        
         public void setBirthday(DateTime inBirthday)
         {
             birthday = inBirthday;
@@ -58,6 +59,16 @@ namespace Poker_Tournament_App
         public DateTime getBirthday()
         {
             return birthday;
+        }
+
+        public void setHometown(string inHometown)
+        {
+            hometown = inHometown;
+        }
+
+        public string getHometown()
+        {
+            return hometown;
         }
     }
 }
