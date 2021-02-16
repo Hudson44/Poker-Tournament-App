@@ -34,67 +34,71 @@ class MainClass {
     }
 }
 
-public class Tournament
+public class Game
 {
-  string name;
-  DateTime date;
-  string location;
-  int maxPlayers;
+  int id;
+  string winningHand;
+  bool finalRoundGame;
 
-  public Tournament()
+  List<Player> players = new List<Player>();
+
+  public Game()
   {
-    setName("");
-    setDate(new DateTime(1900, 01, 01));
-    setLocation("");
-    setMaxPlayers(0);
+    setId(404);
+    setWinningHand("");
+    setFinalRoundGame(false);
   }
 
-  public Tournament(string inName, DateTime inDate, string inLocation, int inMaxPlayers)
+  //Initialize without players
+  public Game(int inId, string inWinningHand, bool inFinalRoundGame)
   {
-    setName(inName);
-    setDate(inDate);
-    setLocation(inLocation);
-    setMaxPlayers(inMaxPlayers);
+    setName(inId);
+    setDate(inWinningHand);
+    setLocation(inFinalRoundGame);
   }
 
-  public void setName(string inName)
+  //Initialize with player(s)
+  public Game(int inId, string inWinningHand, bool inFinalRoundGame, List<Player> inPlayers)
   {
-    name = inName;
+    setName(inId);
+    setDate(inWinningHand);
+    setLocation(inFinalRoundGame);
+    addPlayers(inPlayers);
   }
 
-  public string getName()
+  public void setId(int inId)
   {
-    return name;
+    id = inId;
   }
 
-  public void setDate(DateTime inDate)
+  public int getId()
   {
-    date = inDate.Date;
+    return id;
   }
 
-  public DateTime getDate()
+  public void setWinningHand(string inWinningHand)
   {
-    return date;
+    winningHand = inWinningHand;
   }
 
-  public void setLocation(string inLocation)
+  public string getWinningHand()
   {
-    location = inLocation;
+    return winningHand;
   }
 
-  public string getLocation()
+  public void setFinalRoundGame(bool inFinalRoundGame)
   {
-    return location;
+    finalRoundGame = inFinalRoundGame;
   }
 
-  public void setMaxPlayers(int inMaxPlayers)
+  public string getFinalRoundGame()
   {
-    maxPlayers = inMaxPlayers;
+    return finalRoundGame;
   }
 
-  public int getMaxPlayers()
+  public void addPlayers(List<Player> inPlayers)
   {
-    return maxPlayers;
+    players.add(inPlayers);
   }
 
 }
