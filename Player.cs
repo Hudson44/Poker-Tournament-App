@@ -41,5 +41,14 @@ namespace Poker_Tournament_App
             return name;
         }
 
+        public void setDateJoined(DateTime inDateJoined)
+        {
+            dateJoined = inDateJoined;
+        }
+
+        public DateTime getDateJoined()
+        {
+            return dateJoined;
+        }
     }
 }
