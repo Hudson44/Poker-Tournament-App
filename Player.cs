@@ -6,8 +6,8 @@ namespace Poker_Tournament_App
     class Player
     {
         string name;
-        DateTime dateJoined;
-        DateTime birthday;
+        DateTime dateJoined; //new DateTime(year, month, day)
+        DateTime birthday; //new DateTime(year, month, day)
         string hometown;
         int rankChips;
 
