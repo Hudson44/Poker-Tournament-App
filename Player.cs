@@ -50,7 +50,7 @@ namespace Poker_Tournament_App
         {
             return dateJoined;
         }
-        
+
         public void setBirthday(DateTime inBirthday)
         {
             birthday = inBirthday;
@@ -69,6 +69,16 @@ namespace Poker_Tournament_App
         public string getHometown()
         {
             return hometown;
+        }
+
+        public void setRankChips(int inRankChips)
+        {
+            rankChips = inRankChips;
+        }
+
+        public int getRankChips()
+        {
+            return rankChips;
         }
     }
 }
