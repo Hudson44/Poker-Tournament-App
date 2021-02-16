@@ -50,5 +50,14 @@ namespace Poker_Tournament_App
         {
             return dateJoined;
         }
+        public void setBirthday(DateTime inBirthday)
+        {
+            birthday = inBirthday;
+        }
+
+        public DateTime getBirthday()
+        {
+            return birthday;
+        }
     }
 }
