@@ -10,71 +10,76 @@
 using System;
 using System.Collections.Generic;
 
-public class Game
+namespace Poker_Tournament_App
 {
-  int id;
-  string winningHand;
-  bool finalRoundGame;
 
-  List<Player> players = new List<Player>();
-
-  public Game()
+  class Game
   {
-    setId(404);
-    setWinningHand("");
-    setFinalRoundGame(false);
-  }
+    int id;
+    string winningHand;
+    bool finalRoundGame;
 
-  //Initialize without players
-  public Game(int inId, string inWinningHand, bool inFinalRoundGame)
-  {
-    setName(inId);
-    setDate(inWinningHand);
-    setLocation(inFinalRoundGame);
-  }
+    List<Player> players = new List<Player>();
 
-  //Initialize with player(s)
-  public Game(int inId, string inWinningHand, bool inFinalRoundGame, List<Player> inPlayers)
-  {
-    setName(inId);
-    setDate(inWinningHand);
-    setLocation(inFinalRoundGame);
-    addPlayers(inPlayers);
-  }
+    public Game()
+    {
+      setId(404);
+      setWinningHand("");
+      setFinalRoundGame(false);
+    }
 
-  public void setId(int inId)
-  {
-    id = inId;
-  }
+    //Initialize without players
+    public Game(int inId, string inWinningHand, bool inFinalRoundGame)
+    {
+      setId(inId);
+      setWinningHand(inWinningHand);
+      setFinalRoundGame(inFinalRoundGame);
+    }
 
-  public int getId()
-  {
-    return id;
-  }
+    //Initialize with player(s)
+    public Game(int inId, string inWinningHand, bool inFinalRoundGame, List<Player> inPlayers)
+    {
+      setId(inId);
+      setWinningHand(inWinningHand);
+      setFinalRoundGame(inFinalRoundGame);
+      addPlayers(inPlayers);
+    }
 
-  public void setWinningHand(string inWinningHand)
-  {
-    winningHand = inWinningHand;
-  }
+    public void setId(int inId)
+    {
+      id = inId;
+    }
 
-  public string getWinningHand()
-  {
-    return winningHand;
-  }
+    public int getId()
+    {
+      return id;
+    }
 
-  public void setFinalRoundGame(bool inFinalRoundGame)
-  {
-    finalRoundGame = inFinalRoundGame;
-  }
+    public void setWinningHand(string inWinningHand)
+    {
+      winningHand = inWinningHand;
+    }
 
-  public string getFinalRoundGame()
-  {
-    return finalRoundGame;
-  }
+    public string getWinningHand()
+    {
+      return winningHand;
+    }
 
-  public void addPlayers(List<Player> inPlayers)
-  {
-    players.add(inPlayers);
+    public void setFinalRoundGame(bool inFinalRoundGame)
+    {
+      finalRoundGame = inFinalRoundGame;
+    }
+
+    public bool getFinalRoundGame()
+    {
+      return finalRoundGame;
+    }
+
+    public void addPlayers(List<Player> inPlayers)
+    {
+      players.AddRange(inPlayers);
+    }
+
   }
 
 }

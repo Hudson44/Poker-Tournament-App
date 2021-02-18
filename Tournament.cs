@@ -11,7 +11,7 @@ using System;
 
 namespace Poker_Tournament_App
 {
-  public class Tournament
+  class Tournament
   {
     string name;
     DateTime date;
