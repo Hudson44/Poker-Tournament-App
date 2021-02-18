@@ -11,7 +11,7 @@ using System;
 
 namespace Poker_Tournament_App
 {
-  public class Tournament
+  class Tournament
   {
     public string Name{get; set;}
     public string Location{get; set;}
