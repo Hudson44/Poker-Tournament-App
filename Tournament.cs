@@ -9,92 +9,71 @@
 
 using System;
 
-class MainClass {
-  public static void Main (string[] args) {
-      string selection;
-
-      Console.WriteLine("Select an option:\n ");
-      Console.WriteLine("1: Tournaments");
-      Console.WriteLine("2: Players");
-      Console.WriteLine("3: Overall Stats");
-      selection = Console.ReadLine();
-      
-      if(selection == "1")
-      {
-          Console.WriteLine("Tournaments.");
-      }
-      else if(selection == "2")
-      {
-          Console.WriteLine("Players.");
-      }
-      else if(selection == "3")
-      {
-          Console.WriteLine("Overall Stats.");
-        }
-    }
-}
-
-public class Tournament
+namespace Poker_Tournament_App
 {
-  string name;
-  DateTime date;
-  string location;
-  int maxPlayers;
-
-  public Tournament()
+  public class Tournament
   {
-    setName("");
-    setDate(new DateTime(1900, 01, 01));
-    setLocation("");
-    setMaxPlayers(0);
-  }
+    string name;
+    DateTime date;
+    string location;
+    int maxPlayers;
 
-  public Tournament(string inName, DateTime inDate, string inLocation, int inMaxPlayers)
-  {
-    setName(inName);
-    setDate(inDate);
-    setLocation(inLocation);
-    setMaxPlayers(inMaxPlayers);
-  }
+    public Tournament()
+    {
+      setName("");
+      setDate(new DateTime(1900, 01, 01));
+      setLocation("");
+      setMaxPlayers(0);
+    }
 
-  public void setName(string inName)
-  {
-    name = inName;
-  }
+    public Tournament(string inName, DateTime inDate, string inLocation, int inMaxPlayers)
+    {
+      setName(inName);
+      setDate(inDate);
+      setLocation(inLocation);
+      setMaxPlayers(inMaxPlayers);
+    }
 
-  public string getName()
-  {
-    return name;
-  }
+    public void setName(string inName)
+    {
+      name = inName;
+    }
 
-  public void setDate(DateTime inDate)
-  {
-    date = inDate.Date;
-  }
+    public string getName()
+    {
+      return name;
+    }
 
-  public DateTime getDate()
-  {
-    return date;
-  }
+    public void setDate(DateTime inDate)
+    {
+      date = inDate.Date;
+    }
 
-  public void setLocation(string inLocation)
-  {
-    location = inLocation;
-  }
+    public DateTime getDate()
+    {
+      return date;
+    }
 
-  public string getLocation()
-  {
-    return location;
-  }
+    public void setLocation(string inLocation)
+    {
+      location = inLocation;
+    }
 
-  public void setMaxPlayers(int inMaxPlayers)
-  {
-    maxPlayers = inMaxPlayers;
-  }
+    public string getLocation()
+    {
+      return location;
+    }
 
-  public int getMaxPlayers()
-  {
-    return maxPlayers;
+    public void setMaxPlayers(int inMaxPlayers)
+    {
+      maxPlayers = inMaxPlayers;
+    }
+
+    public int getMaxPlayers()
+    {
+      return maxPlayers;
+    }
+
   }
 
 }
