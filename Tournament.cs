@@ -1,7 +1,7 @@
 /****************************************
  * Authors: Jonathan H., Richard Z., and Anthony S.
  * Date Created: February 12, 2021
- * Data Last Modified: February 16, 2021
+ * Data Last Modified: February 18, 2021
  * Project: Poker Tournament App
  * Filename: TournamentApp.cs
  * Instructor: Professor James Munger
@@ -9,92 +9,54 @@
 
 using System;
 
-class MainClass {
-  public static void Main (string[] args) {
-      string selection;
+namespace Poker_Tournament_App
+{
+  class Tournament
+  {
+    public string Name{get; set;}
+    public string Location{get; set;}
+    public int MaxPlayers{get; set;}
 
-      Console.WriteLine("Select an option:\n ");
-      Console.WriteLine("1: Tournaments");
-      Console.WriteLine("2: Players");
-      Console.WriteLine("3: Overall Stats");
-      selection = Console.ReadLine();
-      
-      if(selection == "1")
-      {
-          Console.WriteLine("Tournaments.");
-      }
-      else if(selection == "2")
-      {
-          Console.WriteLine("Players.");
-      }
-      else if(selection == "3")
-      {
-          Console.WriteLine("Overall Stats.");
+    DateTime _tournamentDate;
+
+    public DateTime TournamentDate
+    {
+        get
+        {
+            return this._tournamentDate;
+        }
+        set
+        {
+            this._tournamentDate = value.Date;
         }
     }
-}
 
-public class Tournament
-{
-  string name;
-  DateTime date;
-  string location;
-  int maxPlayers;
+    public Tournament()
+    {
+      Name = "";
+      TournamentDate = new DateTime(1900, 01, 01);
+      Location = "";
+      MaxPlayers = 0;
+    }
 
-  public Tournament()
-  {
-    setName("");
-    setDate(new DateTime(1900, 01, 01));
-    setLocation("");
-    setMaxPlayers(0);
-  }
+    public Tournament(string inName, DateTime inDate, string inLocation, int inMaxPlayers)
+    {
+      Name = inName;
+      TournamentDate = inDate;
+      Location = inLocation;
+      MaxPlayers = inMaxPlayers;
+    }
 
-  public Tournament(string inName, DateTime inDate, string inLocation, int inMaxPlayers)
-  {
-    setName(inName);
-    setDate(inDate);
-    setLocation(inLocation);
-    setMaxPlayers(inMaxPlayers);
-  }
+    public override string ToString()
+    {
+      string printString = ""; 
+      printString += "\nName:\t\t" + Name;
+      printString += "\nDate:\t\t" + TournamentDate.ToString("d");
+      printString += "\nLocation:\t" + Location;
+      printString += "\nMax Players:" + MaxPlayers;
+      return printString;
+    }
 
-  public void setName(string inName)
-  {
-    name = inName;
-  }
-
-  public string getName()
-  {
-    return name;
-  }
-
-  public void setDate(DateTime inDate)
-  {
-    date = inDate.Date;
-  }
-
-  public DateTime getDate()
-  {
-    return date;
-  }
-
-  public void setLocation(string inLocation)
-  {
-    location = inLocation;
-  }
-
-  public string getLocation()
-  {
-    return location;
-  }
-
-  public void setMaxPlayers(int inMaxPlayers)
-  {
-    maxPlayers = inMaxPlayers;
-  }
-
-  public int getMaxPlayers()
-  {
-    return maxPlayers;
   }
 
 }
