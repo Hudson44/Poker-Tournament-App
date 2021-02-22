@@ -1,104 +1,55 @@
 /****************************************
  * Authors: Jonathan H., Richard Z., and Anthony S.
  * Date Created: February 12, 2021
- * Data Last Modified: February 16, 2021
+ * Data Last Modified: February 18, 2021
  * Project: Poker Tournament App
  * Filename: TournamentApp.cs
  * Instructor: Professor James Munger
  */
 
 using System;
+using System.Collections.Generic;
 
-class MainClass {
-  public static void Main (string[] args) {
-      string selection;
-
-      Console.WriteLine("Select an option:\n ");
-      Console.WriteLine("1: Tournaments");
-      Console.WriteLine("2: Players");
-      Console.WriteLine("3: Overall Stats");
-      selection = Console.ReadLine();
-      
-      if(selection == "1")
-      {
-          Console.WriteLine("Tournaments.");
-      }
-      else if(selection == "2")
-      {
-          Console.WriteLine("Players.");
-      }
-      else if(selection == "3")
-      {
-          Console.WriteLine("Overall Stats.");
-        }
-    }
-}
-
-public class Game
+namespace Poker_Tournament_App
 {
-  int id;
-  string winningHand;
-  bool finalRoundGame;
 
-  List<Player> players = new List<Player>();
-
-  public Game()
+  class Game
   {
-    setId(404);
-    setWinningHand("");
-    setFinalRoundGame(false);
-  }
+    int Id{get; set;}
+    string WinningHand{get; set;}
+    bool FinalRoundGame{get; set;}
 
-  //Initialize without players
-  public Game(int inId, string inWinningHand, bool inFinalRoundGame)
-  {
-    setName(inId);
-    setDate(inWinningHand);
-    setLocation(inFinalRoundGame);
-  }
+    List<Player> players = new List<Player>();
 
-  //Initialize with player(s)
-  public Game(int inId, string inWinningHand, bool inFinalRoundGame, List<Player> inPlayers)
-  {
-    setName(inId);
-    setDate(inWinningHand);
-    setLocation(inFinalRoundGame);
-    addPlayers(inPlayers);
-  }
+    public Game()
+    {
+      Id = 404;
+      WinningHand = "";
+      FinalRoundGame = false;
+    }
 
-  public void setId(int inId)
-  {
-    id = inId;
-  }
+    //Initialize without players
+    public Game(int inId, string inWinningHand, bool inFinalRoundGame)
+    {
+      Id = inId;
+      WinningHand = inWinningHand;
+      FinalRoundGame = inFinalRoundGame;
+    }
 
-  public int getId()
-  {
-    return id;
-  }
+    //Initialize with player(s)
+    public Game(int inId, string inWinningHand, bool inFinalRoundGame, List<Player> inPlayers)
+    {
+      Id = inId;
+      WinningHand = inWinningHand;
+      FinalRoundGame = inFinalRoundGame;
+      addPlayers(inPlayers);
+    }
 
-  public void setWinningHand(string inWinningHand)
-  {
-    winningHand = inWinningHand;
-  }
+    public void addPlayers(List<Player> inPlayers)
+    {
+      players.AddRange(inPlayers);
+    }
 
-  public string getWinningHand()
-  {
-    return winningHand;
-  }
-
-  public void setFinalRoundGame(bool inFinalRoundGame)
-  {
-    finalRoundGame = inFinalRoundGame;
-  }
-
-  public string getFinalRoundGame()
-  {
-    return finalRoundGame;
-  }
-
-  public void addPlayers(List<Player> inPlayers)
-  {
-    players.add(inPlayers);
   }
 
 }
