@@ -6,23 +6,23 @@ namespace Poker_Tournament_App
     class Player
     {
         public string name {get; set;}
-        public DateTime dateJoined {get; set;} //new DateTime(year, month, day)
-        public DateTime birthday {get; set;} //new DateTime(year, month, day)
+        public string dateJoined {get; set;} 
+        public string birthday {get; set;} 
         public string hometown {get; set;}
-        public int rankChips {get; set;} //new DateTime(year, month, day)
+        public int rankChips {get; set;}
 
-        Dictionary<string, int> winningHandCount = new Dictionary<string, int>();
+        public Dictionary<string, int> winningHandCount = new Dictionary<string, int>();
 
         public Player()
         {
             name = "";
-            dateJoined = new DateTime(1900, 01, 01);
-            birthday = new DateTime(1900, 01, 01);
+            dateJoined = "";
+            birthday = "";
             hometown = "";
             rankChips = 0;
         }
 
-        public Player(string inName, DateTime inDateJoined, DateTime inBirthday, string inHometown, int inRankChips)
+        public Player(string inName, string inDateJoined, string inBirthday, string inHometown, int inRankChips)
         {
             name = inName;
             dateJoined = inDateJoined;
@@ -41,6 +41,17 @@ namespace Poker_Tournament_App
             {
             winningHandCount.Add(inHandType, 1);
             }
+        }
+
+        public override string ToString()
+        {
+            string printString = ""; 
+            printString += "\nName:\t\t" + name;
+            printString += "\nDate Joined:\t" + dateJoined;
+            printString += "\nBirthday:\t" + birthday;
+            printString += "\nHometown:\t" + hometown;
+            printString += "\nRank Chips:\t" + rankChips;
+            return printString;
         }
     }
 }
