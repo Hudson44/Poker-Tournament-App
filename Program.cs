@@ -20,7 +20,7 @@ namespace Poker_Tournament_App
         }
         else if(selection == "2")
         {
-            Console.WriteLine("Players.");
+            GetPlayerData.GetData();
         }
         else if(selection == "3")
         {
