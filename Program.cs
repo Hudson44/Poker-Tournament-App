@@ -16,7 +16,7 @@ namespace Poker_Tournament_App
         
         if (selection == "1")
         {
-            Console.WriteLine("Tournaments.");
+            GetTournamentData.GetData();
         }
         else if(selection == "2")
         {
