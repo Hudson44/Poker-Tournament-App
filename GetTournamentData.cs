@@ -7,7 +7,7 @@ namespace Poker_Tournament_App
 {
     class GetTournamentData
     {
-        public static void GetData()
+        public static List<Tournament> GetData()
         {
             //list of tournament instances
             List<Tournament> Tournaments = new List<Tournament>();
@@ -29,10 +29,7 @@ namespace Poker_Tournament_App
                 }
             }
 
-            //printing tournament information
-            foreach (Tournament tournament in Tournaments){
-            Console.WriteLine(tournament);
-            }
+            return(Tournaments);
         }
     }
 }
