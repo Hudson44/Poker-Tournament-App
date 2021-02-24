@@ -40,7 +40,7 @@ namespace Poker_Tournament_App
       printString += "\nName:\t\t" + Name;
       printString += "\nDate:\t\t" + TournamentDate;
       printString += "\nLocation:\t" + Location;
-      printString += "\nMax Players:" + MaxPlayers;
+      printString += "\nMax Players:\t" + MaxPlayers;
       return printString;
     }
 
