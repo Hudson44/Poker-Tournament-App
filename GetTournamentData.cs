@@ -23,7 +23,7 @@ namespace Poker_Tournament_App
                     //tournament information from csv file
                     string line = reader.ReadLine();
                     string[] values = Regex.Split(line, ",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
-                    newTournament = new Tournament(values[1], values[2], values[3], Int32.Parse(values[6]));
+                    newTournament = new Tournament(values[1], values[2], values[3], Int32.Parse(values[6]), values[0]);
                     
                     Tournaments.Add(newTournament);
                 }
