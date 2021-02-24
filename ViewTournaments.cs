@@ -11,10 +11,11 @@ namespace Poker_Tournament_App
             string selection;
             List<Tournament> Tournaments = GetTournamentData.GetData();
 
-            Console.WriteLine("Select a tournament:\n");
+            Console.Clear();
+            Console.WriteLine("Select a tournament by ID:\n");
 
             foreach (Tournament tournament in Tournaments){
-            Console.WriteLine(tournament.Name);
+            Console.WriteLine(tournament.TournamentID + " " + tournament.Name);
             
             }
 
