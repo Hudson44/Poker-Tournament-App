@@ -17,6 +17,7 @@ namespace Poker_Tournament_App
     public string Location{get; set;}
     public int MaxPlayers{get; set;}
     public string TournamentDate{get;set;}
+    public string TournamentID{get;set;}
 
     public Tournament()
     {
@@ -24,14 +25,16 @@ namespace Poker_Tournament_App
       TournamentDate = "";
       Location = "";
       MaxPlayers = 0;
+      TournamentID = "";
     }
 
-    public Tournament(string inName, string inDate, string inLocation, int inMaxPlayers)
+    public Tournament(string inName, string inDate, string inLocation, int inMaxPlayers, string inTournamentID)
     {
       Name = inName;
       TournamentDate = inDate;
       Location = inLocation;
       MaxPlayers = inMaxPlayers;
+      TournamentID = inTournamentID;
     }
 
     public override string ToString()
