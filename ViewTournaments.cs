@@ -47,6 +47,10 @@ namespace Poker_Tournament_App
 
                 selection = Console.ReadLine();
 
+                if (selection == "new"){
+                    NewTournament.New();
+                }
+
                 foreach (Tournament tournament in Tournaments){
                     if (selection == tournament.TournamentID){
                         SelectTournament.Select(tournament);
