@@ -17,7 +17,6 @@ namespace Poker_Tournament_App
             while (!(selection == "q")){
                 Console.Clear();
                 Console.WriteLine("Select a tournament by ID:\n");
-                Console.WriteLine("[n] Next [b] Back [q] quit");
 
                 //allow using "next" if not at the end of the list of tournaments
                 if (displayed < Tournaments.Count - displayAmount){
@@ -43,6 +42,8 @@ namespace Poker_Tournament_App
                 catch{
                     
                 }
+
+                Console.WriteLine("\n[n] Next [b] Back [q] quit\n");
 
                 selection = Console.ReadLine();
             }
