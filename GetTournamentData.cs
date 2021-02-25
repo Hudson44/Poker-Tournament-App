@@ -5,9 +5,9 @@ using System.Text.RegularExpressions;
 
 namespace Poker_Tournament_App
 {
-    class GetTournamentData
+    public class GetTournamentData
     {
-        public static List<Tournament> GetData()
+        public static void GetData()
         {
             //list of tournament instances
 
@@ -27,8 +27,6 @@ namespace Poker_Tournament_App
                     TournamentList.Tournaments.Add(newTournament);
                 }
             }
-
-            return(TournamentList.Tournaments);
         }
     }
 }

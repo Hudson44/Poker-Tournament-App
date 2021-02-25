@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Poker_Tournament_App
 {
-    class ViewTournament
+    public class ViewTournament
     {   
         public static void View()
         {
@@ -13,13 +13,14 @@ namespace Poker_Tournament_App
             int displayed = 0;
             int displayAmount = 10;
 
-            List<Tournament> Tournaments = GetTournamentData.GetData();
+            GetTournamentData.GetData();
+            
             while (!(selection == "q")){
                 Console.Clear();
                 Console.WriteLine("Select a tournament by ID:\n");
 
                 //allow using "next" if not at the end of the list of tournaments
-                if (displayed < Tournaments.Count - displayAmount){
+                if (displayed < TournamentList.Tournaments.Count - displayAmount){
                     if (selection == "n"){
                         displayed += displayAmount;
                     }
@@ -36,7 +37,7 @@ namespace Poker_Tournament_App
                 try{
                     //print information for tournaments in display range
                     foreach (int i in Enumerable.Range(displayed, displayAmount)){
-                        Console.WriteLine(Tournaments[i].TournamentID + " " + Tournaments[i].Name);
+                        Console.WriteLine(TournamentList.Tournaments[i].TournamentID + " " + TournamentList.Tournaments[i].Name);
                     }
                 }
                 catch{
@@ -51,14 +52,12 @@ namespace Poker_Tournament_App
                     NewTournament.New();
                 }
 
-                foreach (Tournament tournament in Tournaments){
+                foreach (Tournament tournament in TournamentList.Tournaments){
                     if (selection == tournament.TournamentID){
                         SelectTournament.Select(tournament);
                     }
                 }
             }
-            
-
         }
     }
 }

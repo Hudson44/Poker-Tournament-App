@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Poker_Tournament_App
 {
-    class SelectTournament
+    public class SelectTournament
     {   
         public static void Select(Tournament tournament)
         {
