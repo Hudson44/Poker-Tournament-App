@@ -46,6 +46,13 @@ namespace Poker_Tournament_App
                 Console.WriteLine("\n[n] Next [b] Back [q] quit\n");
 
                 selection = Console.ReadLine();
+
+                foreach (Tournament tournament in Tournaments){
+                    if (selection == tournament.TournamentID){
+                        SelectTournament.Select(tournament);
+                        Console.WriteLine("gasfd");
+                    }
+                }
             }
             
 
