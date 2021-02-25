@@ -6,9 +6,9 @@ namespace Poker_Tournament_App
 {
     class SelectTournament
     {   
-        public static void Select()
+        public static void Select(Tournament inTournament)
         {
-
+            
         }
     }
 }
