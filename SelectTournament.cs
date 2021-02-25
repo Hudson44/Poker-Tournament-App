@@ -6,9 +6,12 @@ namespace Poker_Tournament_App
 {
     class SelectTournament
     {   
-        public static void Select(Tournament inTournament)
+        public static void Select(Tournament tournament)
         {
-            
+            Console.Clear();
+            Console.WriteLine(tournament);
+
+            Console.ReadLine();
         }
     }
 }
