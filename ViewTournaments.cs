@@ -19,19 +19,23 @@ namespace Poker_Tournament_App
                 Console.WriteLine("Select a tournament by ID:\n");
                 Console.WriteLine("[n] Next [b] Back [q] quit");
 
-                if (displayed < Tournaments.Count){
+                //allow using "next" if not at the end of the list of tournaments
+                if (displayed < Tournaments.Count - displayAmount){
                     if (selection == "n"){
                         displayed += displayAmount;
                     }
                 }
 
+                //allow using "back" if not at the beginning of the list of tournaments
                 if (displayed >= displayAmount){
                     if (selection == "b"){
                         displayed -= displayAmount;
                     }
                 }
 
+                //prevent errors when the end of the list is reached
                 try{
+                    //print information for tournaments in display range
                     foreach (int i in Enumerable.Range(displayed, displayAmount)){
                         Console.WriteLine(Tournaments[i].TournamentID + " " + Tournaments[i].Name);
                     }
@@ -39,12 +43,6 @@ namespace Poker_Tournament_App
                 catch{
                     
                 }
-
-                //print tournament information
-                /*foreach (Tournament tournament in Tournaments){
-                Console.WriteLine(tournament.TournamentID + " " + tournament.Name);
-                
-                }*/Console.WriteLine(displayed);
 
                 selection = Console.ReadLine();
             }
