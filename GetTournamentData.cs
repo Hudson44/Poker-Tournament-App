@@ -10,7 +10,6 @@ namespace Poker_Tournament_App
         public static List<Tournament> GetData()
         {
             //list of tournament instances
-            List<Tournament> Tournaments = new List<Tournament>();
 
             Tournament newTournament;
             
@@ -25,11 +24,11 @@ namespace Poker_Tournament_App
                     string[] values = Regex.Split(line, ",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
                     newTournament = new Tournament(values[1], values[2], values[3], Int32.Parse(values[6]), values[0]);
                     
-                    Tournaments.Add(newTournament);
+                    TournamentList.Tournaments.Add(newTournament);
                 }
             }
 
-            return(Tournaments);
+            return(TournamentList.Tournaments);
         }
     }
 }
