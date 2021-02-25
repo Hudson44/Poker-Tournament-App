@@ -50,7 +50,6 @@ namespace Poker_Tournament_App
                 foreach (Tournament tournament in Tournaments){
                     if (selection == tournament.TournamentID){
                         SelectTournament.Select(tournament);
-                        Console.WriteLine("gasfd");
                     }
                 }
             }
