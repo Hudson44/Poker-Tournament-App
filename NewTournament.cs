@@ -15,13 +15,16 @@ namespace Poker_Tournament_App
             Console.Clear();
             Console.WriteLine("Enter tournament data:");
             
+            //clear list of entered data
             enteredData.Clear();
             
+            //collect user input
             foreach (string prompt in prompts){
                 Console.WriteLine("\n" + prompt);
                 enteredData.Add(Console.ReadLine());
             }
             
+            //create new tournament with user data
             newTournament = new Tournament(enteredData[0], enteredData[1], enteredData[2], Int32.Parse(enteredData[3]), enteredData[4]);
             
             Console.ReadLine();

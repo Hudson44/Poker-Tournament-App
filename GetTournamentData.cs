@@ -9,21 +9,22 @@ namespace Poker_Tournament_App
     {
         public static void GetData()
         {
-            //list of tournament instances
-
             Tournament newTournament;
             
             using(StreamReader reader = new StreamReader(@"Poker League Sample Data - Tournaments.csv")){
-                //header row from csv file
+                //pull header row from csv file
                 string headerLine = reader.ReadLine();
                 string[] headers = headerLine.Split(',');
                 
                 while (!reader.EndOfStream){
-                    //tournament information from csv file
+                    //pull tournament information from csv file
                     string line = reader.ReadLine();
+
+                    //splits line on commas not in double quotes
                     string[] values = Regex.Split(line, ",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
                     newTournament = new Tournament(values[1], values[2], values[3], Int32.Parse(values[6]), values[0]);
                     
+                    //add new tournament to the tournament list
                     TournamentList.Tournaments.Add(newTournament);
                 }
             }

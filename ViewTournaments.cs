@@ -44,14 +44,16 @@ namespace Poker_Tournament_App
                     
                 }
 
-                Console.WriteLine("\n[n] Next [b] Back [q] quit\n");
+                Console.WriteLine("\n[n] Next [b] Back [q] quit [new] new tournament\n");
 
                 selection = Console.ReadLine();
 
+                //run NewTournament if "new" is entered
                 if (selection == "new"){
                     NewTournament.New();
                 }
 
+                //select a tournament with SelectTournament if its ID is entered
                 foreach (Tournament tournament in TournamentList.Tournaments){
                     if (selection == tournament.TournamentID){
                         SelectTournament.Select(tournament);
