@@ -44,7 +44,7 @@ namespace Poker_Tournament_App
                     
                 }
 
-                Console.WriteLine("\n[n] Next [b] Back [q] quit [new] new tournament [edit] edit tournament\n");
+                Console.WriteLine("\n[n] Next [b] Back [q] quit \n[new] new tournament [edit] edit tournament\n");
 
                 selection = Console.ReadLine();
 

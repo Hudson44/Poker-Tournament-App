@@ -12,8 +12,10 @@ namespace Poker_Tournament_App
             string toEdit = "";
 
             while (selectedID != "q"){
+                
                 Console.Clear();
                 Console.WriteLine("Enter Id of tournament to edit:");
+                Console.WriteLine("\n[q] quit");
                 selectedID = Console.ReadLine();
 
                 foreach (Tournament tournament in TournamentList.Tournaments){
@@ -22,7 +24,7 @@ namespace Poker_Tournament_App
                         while (toEdit != "q"){
                             Console.Clear();
                             Console.WriteLine("What to edit:");
-                            Console.WriteLine("\n1. Name \n2. Date \n3. Location \n4. Max players");
+                            Console.WriteLine("\n1. Name \n2. Date \n3. Location \n4. Max players \n\n[q] quit");
                             toEdit = Console.ReadLine();
 
                             if (toEdit == "1"){
@@ -41,12 +43,9 @@ namespace Poker_Tournament_App
                                 Console.WriteLine("\nEnter new max player amount:");
                                 tournament.MaxPlayers = Int32.Parse(Console.ReadLine());
                             }
-
-                            Console.WriteLine("\n[q] quit");
                         }
                     }
                 }             
-
                 Console.WriteLine("\n[q] quit");    
             }
         }
