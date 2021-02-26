@@ -11,49 +11,39 @@ using System;
 
 namespace Poker_Tournament_App
 {
-  class Tournament
+  public class Tournament
   {
     public string Name{get; set;}
     public string Location{get; set;}
     public int MaxPlayers{get; set;}
-
-    DateTime _tournamentDate;
-
-    public DateTime TournamentDate
-    {
-        get
-        {
-            return this._tournamentDate;
-        }
-        set
-        {
-            this._tournamentDate = value.Date;
-        }
-    }
+    public string TournamentDate{get;set;}
+    public string TournamentID{get;set;}
 
     public Tournament()
     {
       Name = "";
-      TournamentDate = new DateTime(1900, 01, 01);
+      TournamentDate = "";
       Location = "";
       MaxPlayers = 0;
+      TournamentID = "";
     }
 
-    public Tournament(string inName, DateTime inDate, string inLocation, int inMaxPlayers)
+    public Tournament(string inName, string inDate, string inLocation, int inMaxPlayers, string inTournamentID)
     {
       Name = inName;
       TournamentDate = inDate;
       Location = inLocation;
       MaxPlayers = inMaxPlayers;
+      TournamentID = inTournamentID;
     }
 
     public override string ToString()
     {
       string printString = ""; 
       printString += "\nName:\t\t" + Name;
-      printString += "\nDate:\t\t" + TournamentDate.ToString("d");
+      printString += "\nDate:\t\t" + TournamentDate;
       printString += "\nLocation:\t" + Location;
-      printString += "\nMax Players:" + MaxPlayers;
+      printString += "\nMax Players:\t" + MaxPlayers;
       return printString;
     }
 
