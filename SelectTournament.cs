@@ -17,11 +17,11 @@ namespace Poker_Tournament_App
 
                 Console.WriteLine("\n[q] quit [edit] edit tournament");
 
-                if (selection == "edit"){
-                        EditTournament.Edit();
-                    }
-
                 selection = Console.ReadLine();
+
+                if (selection == "edit"){
+                    EditTournament.Edit(tournament);
+                }
             }
         }
     }
