@@ -13,8 +13,6 @@ namespace Poker_Tournament_App
             int displayed = 0;
             int displayAmount = 10;
 
-            GetTournamentData.GetData();
-            
             while (!(selection == "q")){
                 Console.Clear();
                 Console.WriteLine("Select a tournament by ID:\n");
