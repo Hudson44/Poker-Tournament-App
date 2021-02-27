@@ -5,6 +5,7 @@ using System.Text.RegularExpressions;
 
 namespace Poker_Tournament_App
 {
+    //pulls tournament information from the tournament csv and adds it to the list in TournamentList
     public class GetTournamentData
     {
         public static void GetData()

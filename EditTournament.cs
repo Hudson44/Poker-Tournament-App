@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace Poker_Tournament_App
 {
+    //the user can select a tournament, choose a field, and edit it
     public class EditTournament
     {   
         public static void Edit()
