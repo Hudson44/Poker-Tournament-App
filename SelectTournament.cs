@@ -9,10 +9,20 @@ namespace Poker_Tournament_App
     {   
         public static void Select(Tournament tournament)
         {
-            Console.Clear();
-            Console.WriteLine(tournament);
+            string selection = "";
 
-            Console.ReadLine();
+            while (selection != "q"){
+                Console.Clear();
+                Console.WriteLine(tournament);
+
+                Console.WriteLine("\n[q] quit [edit] edit tournament");
+
+                if (selection == "edit"){
+                        EditTournament.Edit();
+                    }
+
+                selection = Console.ReadLine();
+            }
         }
     }
 }
