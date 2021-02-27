@@ -3,54 +3,55 @@ using System.Collections.Generic;
 
 namespace Poker_Tournament_App
 {
-    class Player
+    public class Player
     {
-        public string name {get; set;}
-        public string dateJoined {get; set;} 
-        public string birthday {get; set;} 
-        public string hometown {get; set;}
-        public int rankChips {get; set;}
+        public string Name {get; set;}
+        public string DateJoined {get; set;} 
+        public string Birthday {get; set;} 
+        public string Hometown {get; set;}
+        public int RankChips {get; set;}
 
-        public Dictionary<string, int> winningHandCount = new Dictionary<string, int>();
+        public Dictionary<string, int> WinningHandCount = new Dictionary<string, int>();
 
         public Player()
         {
-            name = "";
-            dateJoined = "";
-            birthday = "";
-            hometown = "";
-            rankChips = 0;
+            Name = "";
+            DateJoined = "";
+            Birthday = "";
+            Hometown = "";
+            RankChips = 0;
         }
 
         public Player(string inName, string inDateJoined, string inBirthday, string inHometown, int inRankChips)
         {
-            name = inName;
-            dateJoined = inDateJoined;
-            birthday = inBirthday;
-            hometown = inHometown;
-            rankChips = inRankChips;
+            Name = inName;
+            DateJoined = inDateJoined;
+            Birthday = inBirthday;
+            Hometown = inHometown;
+            RankChips = inRankChips;
         }
 
         public void updateWinningHandCount(string inHandType)
         {
-            if(winningHandCount.ContainsKey(inHandType))
+            if(WinningHandCount.ContainsKey(inHandType))
             {
-            winningHandCount[inHandType] = winningHandCount[inHandType] + 1;
+                WinningHandCount[inHandType] = WinningHandCount[inHandType] + 1;
             }
             else
             {
-            winningHandCount.Add(inHandType, 1);
+                WinningHandCount.Add(inHandType, 1);
             }
         }
 
         public override string ToString()
         {
             string printString = ""; 
-            printString += "\nName:\t\t" + name;
-            printString += "\nDate Joined:\t" + dateJoined;
-            printString += "\nBirthday:\t" + birthday;
-            printString += "\nHometown:\t" + hometown;
-            printString += "\nRank Chips:\t" + rankChips;
+            printString += "\nName:\t\t" + Name;
+            printString += "\nDate Joined:\t" + DateJoined;
+            printString += "\nBirthday:\t" + Birthday;
+            printString += "\nHometown:\t" + Hometown;
+            printString += "\nRank Chips:\t" + RankChips;
+            printString += "\nWinning Hands:\n" + string.Join(Environment.NewLine, WinningHandCount);
             return printString;
         }
     }
