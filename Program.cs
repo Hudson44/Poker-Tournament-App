@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -11,6 +11,9 @@ namespace Poker_Tournament_App
 
             if (!TournamentList.Tournaments.Any()){
                     GetTournamentData.GetData();
+                }
+            if (!PlayerList.Players.Any()){
+                    GetPlayerData.GetData();
                 }
 
             while (!(selection == "4")){
@@ -28,7 +31,7 @@ namespace Poker_Tournament_App
                 }
                 else if(selection == "2")
                 {
-                    Console.WriteLine("Players.");
+                    ViewPlayer.View();
                 }
                 else if(selection == "3")
                 {
