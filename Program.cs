@@ -12,6 +12,9 @@ namespace Poker_Tournament_App
             if (!TournamentList.Tournaments.Any()){
                     GetTournamentData.GetData();
                 }
+            if (!PlayerList.Players.Any()){
+                    GetPlayerData.GetData();
+                }
 
             while (!(selection == "4")){
                 Console.Clear();
