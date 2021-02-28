@@ -13,8 +13,6 @@ namespace Poker_Tournament_App
             int displayed = 0;
             int displayAmount = 10;
 
-            GetTournamentData.GetData();
-            
             while (!(selection == "q")){
                 Console.Clear();
                 Console.WriteLine("Select a tournament by ID:\n");
@@ -44,17 +42,13 @@ namespace Poker_Tournament_App
                     
                 }
 
-                Console.WriteLine("\n[n] Next [b] Back [q] quit \n[new] new tournament [edit] edit tournament\n");
+                Console.WriteLine("\n[n] Next [b] Back [q] quit \n[new] new tournament\n");
 
                 selection = Console.ReadLine();
 
                 //run NewTournament if "new" is entered
                 if (selection == "new"){
                     NewTournament.New();
-                }
-
-                if (selection == "edit"){
-                    EditTournament.Edit();
                 }
 
                 //select a tournament with SelectTournament if its ID is entered

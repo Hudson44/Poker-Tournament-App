@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace Poker_Tournament_App
 {
+    //collects tournament information from the user and stores it in a new tournament object
     public class NewTournament
     {   
         static List<string> prompts = new List<string>{"Name: ", "Date: ", "Location: ", "Max players: ", "ID: "};
