@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 namespace Poker_Tournament_App{
+  //splits players into groups of a specific size
   public class SplitGroups {
     static int groupSize = 4;
 
