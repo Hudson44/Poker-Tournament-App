@@ -28,6 +28,10 @@ namespace Poker_Tournament_App
       //create new tournament with user data
       newTournament = new Tournament(enteredData[0], enteredData[1], enteredData[2], Int32.Parse(enteredData[3]), enteredData[4]);
       TournamentList.Tournaments.Add(newTournament);
+
+      Console.Clear();
+      Console.WriteLine("New tournament created:");
+      Console.WriteLine(newTournament);
       
       Console.ReadLine();
     }
