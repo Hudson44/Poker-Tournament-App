@@ -15,11 +15,15 @@ namespace Poker_Tournament_App
                 Console.Clear();
                 Console.WriteLine(tournament);
 
-                Console.WriteLine("\n[q] quit [edit] edit tournament");
+                Console.WriteLine("\n[q] quit [edit] edit tournament [r] register players");
 
                 selection = Console.ReadLine();
 
                 if (selection == "edit"){
+                    EditTournament.Edit(tournament);
+                }
+                //TODO Finish registerplayer
+                if (selection == "r"){
                     EditTournament.Edit(tournament);
                 }
             }

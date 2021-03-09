@@ -5,26 +5,29 @@ namespace Poker_Tournament_App
 {
     public class Player
     {
-        public string Name {get; set;}
-        public string DateJoined {get; set;} 
-        public string Birthday {get; set;} 
-        public string Hometown {get; set;}
-        public int RankChips {get; set;}
+        public string Name { get; set; }
+        public string LeagueID { get; set; }
+        public string DateJoined { get; set; }
+        public string Birthday { get; set; }
+        public string Hometown { get; set; }
+        public int RankChips { get; set; }
 
         public Dictionary<string, int> WinningHandCount = new Dictionary<string, int>();
 
         public Player()
         {
             Name = "";
+            LeagueID = "";
             DateJoined = "";
             Birthday = "";
             Hometown = "";
             RankChips = 0;
         }
 
-        public Player(string inName, string inDateJoined, string inBirthday, string inHometown, int inRankChips)
+        public Player(string inName, string inDateJoined, string inBirthday, string inHometown, int inRankChips, string inLeagueID) 
         {
             Name = inName;
+            LeagueID = inLeagueID;
             DateJoined = inDateJoined;
             Birthday = inBirthday;
             Hometown = inHometown;
@@ -33,7 +36,7 @@ namespace Poker_Tournament_App
 
         public void updateWinningHandCount(string inHandType)
         {
-            if(WinningHandCount.ContainsKey(inHandType))
+            if (WinningHandCount.ContainsKey(inHandType))
             {
                 WinningHandCount[inHandType] = WinningHandCount[inHandType] + 1;
             }
@@ -45,8 +48,9 @@ namespace Poker_Tournament_App
 
         public override string ToString()
         {
-            string printString = ""; 
+            string printString = "";
             printString += "\nName:\t\t" + Name;
+            printString += "\nLeagueID:\t\t" + LeagueID;
             printString += "\nDate Joined:\t" + DateJoined;
             printString += "\nBirthday:\t" + Birthday;
             printString += "\nHometown:\t" + Hometown;

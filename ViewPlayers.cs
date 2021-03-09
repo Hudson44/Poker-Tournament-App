@@ -43,7 +43,7 @@ namespace Poker_Tournament_App
                     //Print information for players in display range
                     foreach (int i in Enumerable.Range(displayed, displayAmount))
                     {
-                        Console.WriteLine(PlayerList.Players[i].Name);
+                        Console.WriteLine(PlayerList.Players[i].LeagueID + " " + PlayerList.Players[i].Name);
                     }
                 }
                 catch
