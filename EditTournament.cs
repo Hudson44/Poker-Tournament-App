@@ -13,8 +13,11 @@ namespace Poker_Tournament_App
 
       while (toEdit != "q"){
         Console.Clear();
-        Console.WriteLine("What to edit:");
+
+        Console.WriteLine(tournament);
+        Console.WriteLine("\nWhat to edit:");
         Console.WriteLine("\n1. Name \n2. Date \n3. Location \n4. Max players \n\n[q] quit");
+        
         toEdit = Console.ReadLine();
 
         if (toEdit == "1"){
