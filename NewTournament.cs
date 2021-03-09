@@ -7,15 +7,15 @@ namespace Poker_Tournament_App
   //collects tournament information from the user and stores it in a new tournament object
   public class NewTournament
   {
-    static string enteredData;
-    static bool valid = false;
-    static int converted;
-    static List<string> prompts = new List<string>{"Name: ", "Date: ", "Location: ", "Max players: ", "ID: "};
-    static List<string> dataList = new List<string>();
-    static Tournament newTournament;
-
     public static void New()
     {
+      string enteredData;
+      bool valid = false;
+      int converted;
+      List<string> prompts = new List<string>{"Name: ", "Date: ", "Location: ", "Max players: ", "ID: "};
+      List<string> dataList = new List<string>();
+      Tournament newTournament;
+
       //clear list of entered data
       dataList.Clear();
       

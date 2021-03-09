@@ -7,11 +7,11 @@ namespace Poker_Tournament_App
   //the user can select a tournament, choose a field, and edit it
   public class EditTournament
   {  
-    static bool valid = false;
-    static int converted;
-    static string playerCount;
     public static void Edit(Tournament tournament)
     {
+      bool valid = false;
+      int converted;
+      string playerCount;
       string toEdit = "";
 
       while (toEdit != "q"){
