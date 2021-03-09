@@ -13,6 +13,8 @@ namespace Poker_Tournament_App
       string selection = "";
       int displayed = 0;
       int displayAmount = 10;
+      double pages;
+      int page;
       
       List<Tournament> DisplayList = new List<Tournament>();
 
@@ -36,6 +38,10 @@ namespace Poker_Tournament_App
           }
         }
 
+        //gets total pages and current page
+        pages = Math.Ceiling(Convert.ToDouble(TournamentList.Tournaments.Count)/displayAmount);
+        page = displayed + 1;
+
         //gets the tournaments for the displyed group and puts them in DisplayList
         foreach (Tournament tournament in TournamentList.Tournaments.GetRange(displayed*displayAmount, Math.Min(displayAmount, TournamentList.Tournaments.Count - displayed*displayAmount))){
           DisplayList.Add(tournament);
@@ -43,8 +49,11 @@ namespace Poker_Tournament_App
 
         //displays the name of each tournament in DisplayList in a numbered list
         foreach (Tournament tournament in DisplayList){
-          Console.WriteLine((DisplayList.IndexOf(tournament) + 1).ToString() + ". " + tournament.Name);
+          Console.WriteLine("{0}. {1}", (DisplayList.IndexOf(tournament) + 1).ToString(), tournament.Name);
         }
+
+        //displays page information
+        Console.WriteLine("\nPage {0}/{1}", page.ToString(), pages.ToString());
 
         //display user prompts
         Console.WriteLine("\n[n] Next [b] Back [q] quit \n[new] new tournament\n");
