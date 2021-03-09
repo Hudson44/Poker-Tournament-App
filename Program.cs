@@ -19,9 +19,9 @@ namespace Poker_Tournament_App
             {
                 GetPlayerData.GetData();
             }
-            TournamentList.Tournaments[0].RegisterPlayer(PlayerList.Players[0]);
-            Console.Write(TournamentList.Tournaments[0].Registrants[0]);
-            Console.ReadLine();
+            // TournamentList.Tournaments[0].RegisterPlayer(PlayerList.Players[0]);
+            // Console.Write(TournamentList.Tournaments[0].Registrants[0]);
+            // Console.ReadLine();
             while (!(selection == "4"))
             {
                 Console.Clear();
