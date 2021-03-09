@@ -8,6 +8,7 @@
  */
 
 using System;
+using System.Collections.Generic;
 
 namespace Poker_Tournament_App
 {
@@ -19,7 +20,10 @@ namespace Poker_Tournament_App
         public string TournamentDate { get; set; }
         public string TournamentID { get; set; }
         public int MaxRegistrants { get; set; }
-        public Player[] Registrants;
+        
+        public List<Player> Registrants = new List<Player>();
+
+
         public Tournament()
         {
             Name = "";
@@ -27,6 +31,7 @@ namespace Poker_Tournament_App
             Location = "";
             MaxPlayers = 0;
             TournamentID = "";
+            Registrants = new Player[];
         }
 
         public Tournament(string inName, string inDate, string inLocation, int inMaxPlayers, string inTournamentID)
@@ -47,6 +52,13 @@ namespace Poker_Tournament_App
             printString += "\nMax Players:\t" + MaxPlayers;
             return printString;
         }
+// public int RegisterPlayer(Player player)
+//  {
+// Registrants.
+
+
+
+//  }
 
     }
 
