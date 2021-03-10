@@ -12,7 +12,7 @@ namespace Poker_Tournament_App
         {
             Tournament newTournament;
             
-            using(StreamReader reader = new StreamReader(@"Poker League Sample Data - Tournaments.csv")){
+            using(StreamReader reader = new StreamReader(@"tournaments_data.csv")){
                 //pull header row from csv file
                 string headerLine = reader.ReadLine();
                 string[] headers = headerLine.Split(',');
