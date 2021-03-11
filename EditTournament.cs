@@ -19,7 +19,7 @@ namespace Poker_Tournament_App
 
         Console.WriteLine(tournament);
         Console.WriteLine("\nWhat to edit:");
-        Console.WriteLine("\n1. Name \n2. Date \n3. Location \n4. Max players \n\n[q] quit");
+        Console.WriteLine("\n1. Name \n2. Date \n3. Location \n4. Max players \n5. Winning hand \n6. First place \n7. Second place \n8. Third place \n9. Fourth place \n\n[q] quit");
 
         toEdit = Console.ReadLine();
         
@@ -55,6 +55,26 @@ namespace Poker_Tournament_App
               }
             }
             valid = false;
+            break;
+          case "5":
+            Console.WriteLine("\nEnter new winnig hand:");
+            tournament.WinningHand = Console.ReadLine();
+            break;
+          case "6":
+            Console.WriteLine("\nEnter new first place winner:");
+            tournament.FirstPlace = Console.ReadLine();
+            break;
+          case "7":
+            Console.WriteLine("\nEnter new second place winner:");
+            tournament.SecondPlace = Console.ReadLine();
+            break;
+          case "8":
+            Console.WriteLine("\nEnter new third place winner:");
+            tournament.ThirdPlace = Console.ReadLine();
+            break;
+          case "9":
+            Console.WriteLine("\nEnter new fourth place winner:");
+            tournament.FourthPlace = Console.ReadLine();
             break;
         }
       }

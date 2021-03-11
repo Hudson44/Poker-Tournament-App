@@ -23,7 +23,7 @@ namespace Poker_Tournament_App
 
           //splits line on commas not in double quotes
           string[] values = Regex.Split(line, ",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
-          newTournament = new Tournament(values[1], values[2], values[3], Int32.Parse(values[6]), values[0]);
+          newTournament = new Tournament(values[0], values[1], values[2], values[3], Int32.Parse(values[6]), values[7], values[8], values[9], values[10], values[11]);
           
           //add new tournament to the tournament list
           TournamentList.Tournaments.Add(newTournament);
