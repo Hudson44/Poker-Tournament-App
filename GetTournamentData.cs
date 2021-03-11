@@ -11,6 +11,7 @@ namespace Poker_Tournament_App
     public static void GetData()
     {
       Tournament newTournament;
+      List<string> Values = new List<string>();
       
       using(StreamReader reader = new StreamReader(@"Poker League Sample Data - Tournaments.csv")){
         //pull header row from csv file
@@ -23,6 +24,13 @@ namespace Poker_Tournament_App
 
           //splits line on commas not in double quotes
           string[] values = Regex.Split(line, ",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
+
+          //strip quotes from data
+          for (int i = 0; i < values.Length; i++){
+            values[i] = values[i].Replace("\"", "");
+          }
+
+          //create a new tournament with the data
           newTournament = new Tournament(values[0], values[1], values[2], values[3], Int32.Parse(values[6]), values[7], values[8], values[9], values[10], values[11]);
           
           //add new tournament to the tournament list
