@@ -31,7 +31,7 @@ namespace Poker_Tournament_App
                 }
                 else if(selection == "2")
                 {
-                    ViewPlayer.View();
+                    PlayerList.View();
                 }
                 else if(selection == "3")
                 {
