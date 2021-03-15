@@ -7,9 +7,7 @@ namespace Poker_Tournament_App
     public class GetPlayerData
     {
         public static void GetData()
-        {   //list of player instances
-            List<Player> Players = new List<Player>();
-
+        {
             Player newPlayer;
 
             using(StreamReader reader = new StreamReader(@"Poker League Sample Data - Players.csv"))
