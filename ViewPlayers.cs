@@ -63,7 +63,7 @@ namespace Poker_Tournament_App
 
                 if(playerIndex != -1)
                 {
-                    SelectPlayer.Select(PlayerList.Players[playerIndex]);
+                    Player.Select(PlayerList.Players[playerIndex]);
                 }
                 else
                 {

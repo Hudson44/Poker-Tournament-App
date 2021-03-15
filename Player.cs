@@ -54,5 +54,13 @@ namespace Poker_Tournament_App
             printString += "\nWinning Hands:\n" + string.Join(Environment.NewLine, WinningHandCount);
             return printString;
         }
+
+        public static void Select(Player inPlayer)
+        {
+            Console.Clear();
+            Console.WriteLine(inPlayer);
+
+            Console.ReadLine();
+        }
     }
 }
