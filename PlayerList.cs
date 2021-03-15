@@ -20,7 +20,7 @@ namespace Poker_Tournament_App
         while (!(selection == "q"))
         {
             Console.Clear();
-            Console.WriteLine("Select a player by name:\n");
+            Console.WriteLine("Select a player by Id:\n");
 
             //Allow using "next" if not at the end of the list of players
             if (displayed < Players.Count - displayAmount)
@@ -46,7 +46,7 @@ namespace Poker_Tournament_App
                 //Print information for players in display range
                 foreach (int i in Enumerable.Range(displayed, displayAmount))
                 {
-                    Console.WriteLine(Players[i].Name);
+                    Console.WriteLine(Players[i].Id + "\t" + Players[i].Name);
                 }
             }
             catch
@@ -60,9 +60,9 @@ namespace Poker_Tournament_App
 
             selection = Console.ReadLine();
 
-            //Select a player with SelectPlayer if its Name is entered
+            //Select a player with SelectPlayer if its Id is entered
 
-            playerIndex = Players.FindIndex(thisPlayer => thisPlayer.Name == selection);
+            playerIndex = Players.FindIndex(thisPlayer => thisPlayer.Id.ToString() == selection);
 
             if(playerIndex != -1)
             {

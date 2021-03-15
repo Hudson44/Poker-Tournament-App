@@ -10,7 +10,7 @@ namespace Poker_Tournament_App
         {
             Player newPlayer;
 
-            using(StreamReader reader = new StreamReader(@"Poker League Sample Data - Players.csv"))
+            using(StreamReader reader = new StreamReader(@"players_data.csv"))
             {
                 //Header row from csv file
                 string headerLine = reader.ReadLine();
@@ -21,7 +21,7 @@ namespace Poker_Tournament_App
                     //Player information from csv file
                     string line = reader.ReadLine();
                     string[] values = line.Split(',');
-                    newPlayer = new Player((values[0] + "," + values[1]).Replace("\"", ""), values[3], values[4], values[5], 0);
+                    newPlayer = new Player(Int32.Parse(values[2]), (values[0] + "," + values[1]).Replace("\"", ""), values[3], values[4], values[5], 0);
                     
                     //Player winning hand from csv file
                     foreach (string value in values)

@@ -5,6 +5,7 @@ namespace Poker_Tournament_App
 {
     public class Player
     {
+        public int Id {get; set;}
         public string Name {get; set;}
         public string DateJoined {get; set;} 
         public string Birthday {get; set;} 
@@ -15,6 +16,7 @@ namespace Poker_Tournament_App
 
         public Player()
         {
+            Id = -1;
             Name = "";
             DateJoined = "";
             Birthday = "";
@@ -22,8 +24,9 @@ namespace Poker_Tournament_App
             RankChips = 0;
         }
 
-        public Player(string inName, string inDateJoined, string inBirthday, string inHometown, int inRankChips)
+        public Player(int inId, string inName, string inDateJoined, string inBirthday, string inHometown, int inRankChips)
         {
+            Id = inId;
             Name = inName;
             DateJoined = inDateJoined;
             Birthday = inBirthday;
@@ -47,6 +50,7 @@ namespace Poker_Tournament_App
         {
             string printString = ""; 
             printString += "\nName:\t\t" + Name;
+            printString += "\t#" + Id;
             printString += "\nDate Joined:\t" + DateJoined;
             printString += "\nBirthday:\t" + Birthday;
             printString += "\nHometown:\t" + Hometown;
