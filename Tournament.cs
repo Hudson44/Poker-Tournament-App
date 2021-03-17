@@ -18,32 +18,53 @@ namespace Poker_Tournament_App
     public int MaxPlayers{get; set;}
     public string TournamentDate{get;set;}
     public string TournamentID{get;set;}
+    public string WinningHand{get;set;}
+    public string FirstPlace{get;set;}
+    public string SecondPlace{get;set;}
+    public string ThirdPlace{get;set;}
+    public string FourthPlace{get;set;}
 
     public Tournament()
     {
+      TournamentID = "";
       Name = "";
       TournamentDate = "";
       Location = "";
       MaxPlayers = 0;
-      TournamentID = "";
+      WinningHand = "";
+      FirstPlace = "";
+      SecondPlace = "";
+      ThirdPlace = "";
+      FourthPlace = "";
     }
 
-    public Tournament(string inName, string inDate, string inLocation, int inMaxPlayers, string inTournamentID)
+    public Tournament(string inTournamentID, string inName, string inDate, string inLocation, int inMaxPlayers, string inWinningHand, string inFirstPlace, string inSecondPlace, string inThirdPlace, string inFourthPlace)
     {
+      TournamentID = inTournamentID;
       Name = inName;
       TournamentDate = inDate;
       Location = inLocation;
       MaxPlayers = inMaxPlayers;
-      TournamentID = inTournamentID;
+      WinningHand = inWinningHand;
+      FirstPlace = inFirstPlace;
+      SecondPlace = inSecondPlace;
+      ThirdPlace = inThirdPlace;
+      FourthPlace = inFourthPlace;
     }
 
     public override string ToString()
     {
-      string printString = ""; 
-      printString += "\nName:\t\t" + Name;
-      printString += "\nDate:\t\t" + TournamentDate;
-      printString += "\nLocation:\t" + Location;
-      printString += "\nMax Players:\t" + MaxPlayers;
+      string printString = "";
+      printString += "\nID:\t\t\t" + TournamentID; 
+      printString += "\nName:\t\t\t" + Name;
+      printString += "\nDate:\t\t\t" + TournamentDate;
+      printString += "\nLocation:\t\t" + Location;
+      printString += "\nMax Players:\t\t" + MaxPlayers;
+      printString += "\nMax Winning Hand:\t" + WinningHand;
+      printString += "\nFirst Place:\t\t" + FirstPlace;
+      printString += "\nSecond Place:\t\t" + SecondPlace;
+      printString += "\nThird Place:\t\t" + ThirdPlace;
+      printString += "\nFourth Place:\t\t" + FourthPlace;
       return printString;
     }
 
