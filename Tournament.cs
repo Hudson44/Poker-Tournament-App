@@ -70,15 +70,6 @@ namespace Poker_Tournament_App
       return printString;
     }
 
-        public Tournament()
-        {
-            Name = "";
-            TournamentDate = "";
-            Location = "";
-            MaxPlayers = 0;
-            TournamentID = "";
-            
-        }
 
         public Tournament(string inName, string inDate, string inLocation, int inMaxPlayers, string inTournamentID)
         {
@@ -89,15 +80,8 @@ namespace Poker_Tournament_App
             TournamentID = inTournamentID;
         }
 
-        public override string ToString()
-        {
-            string printString = "";
-            printString += "\nName:\t\t" + Name;
-            printString += "\nDate:\t\t" + TournamentDate;
-            printString += "\nLocation:\t" + Location;
-            printString += "\nMax Players:\t" + MaxPlayers;
-            return printString;
-        }
+
+        
         public int RegisterPlayer(Player player)
         {
             Registrants.Add(player);
