@@ -69,7 +69,7 @@ namespace Poker_Tournament_App
         //select a tournament with SelectTournament if the number by it is entered
         foreach (Tournament tournament in DisplayList){
           if (selection == (DisplayList.IndexOf(tournament) + 1 ).ToString()){
-            SelectTournament.Select(tournament);
+            Tournament.SelectTournament(tournament);
           }
         }
       }

@@ -68,6 +68,23 @@ namespace Poker_Tournament_App
       return printString;
     }
 
-  }
+    //displays information for a selected tournament
+    public static void SelectTournament(Tournament tournament)
+    {
+      string selection = "";
 
+      while (selection != "q"){
+        Console.Clear();
+        Console.WriteLine(tournament);
+
+        Console.WriteLine("\n[q] quit [edit] edit tournament");
+
+        selection = Console.ReadLine();
+
+        if (selection == "edit"){
+          EditTournament.Edit(tournament);
+        }
+      }
+    }
+  }
 }
