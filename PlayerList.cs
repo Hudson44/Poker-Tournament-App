@@ -7,7 +7,7 @@ namespace Poker_Tournament_App{
   public static class PlayerList {
   public static List<Player> Players = new List<Player>();
    
-  public static void ViewPlayer()
+  public static void ViewPlayers()
   {
     string selection = "";
     int displayed = 0;

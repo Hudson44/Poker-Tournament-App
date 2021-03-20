@@ -27,11 +27,11 @@ namespace Poker_Tournament_App
       
         if (selection == "1")
         {
-          ViewTournament.View();
+          TournamentList.ViewTournaments();
         }
         else if(selection == "2")
         {
-          PlayerList.ViewPlayer();
+          PlayerList.ViewPlayers();
         }
         else if(selection == "3")
         {
