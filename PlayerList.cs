@@ -44,7 +44,7 @@ namespace Poker_Tournament_App{
           //Print information for players in display range
           foreach (int i in Enumerable.Range(displayed, displayAmount))
           {
-            Console.WriteLine(PlayerList.Players[i].Name);
+            Console.WriteLine(PlayerList.Players[i].LeagueNumber + " " + PlayerList.Players[i].Name);
           }
         }
         catch
@@ -60,7 +60,7 @@ namespace Poker_Tournament_App{
 
         //Select a player with SelectPlayer if its Name is entered
 
-        playerIndex = PlayerList.Players.FindIndex(thisPlayer => thisPlayer.Name == selection);
+        playerIndex = PlayerList.Players.FindIndex(thisPlayer => thisPlayer.LeagueNumber == selection);
 
         if(playerIndex != -1)
         {
