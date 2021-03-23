@@ -25,7 +25,7 @@ namespace Poker_Tournament_App
     public string SecondPlace{get;set;}
     public string ThirdPlace{get;set;}
     public string FourthPlace{get;set;}
-    public static List<Player> Registered = new List<Player>();
+    public  List<Player> Registered = new List<Player>();
 
     public Tournament()
     {
@@ -89,11 +89,11 @@ namespace Poker_Tournament_App
         }
 
         if (selection == "r"){
-          Register();
+          Register(tournament);
         }
 
         if (selection == "p"){
-          ViewRegistered();
+          ViewRegistered(tournament);
         }
       }
     }
@@ -171,7 +171,7 @@ namespace Poker_Tournament_App
       }
     }
 
-    public static void Register(){
+    public static void Register(Tournament tournament){
       string toRegister = "";
 
       while (toRegister != "q"){
@@ -189,7 +189,7 @@ namespace Poker_Tournament_App
         //check if a player with the league number exists
         if (index != -1){
           //check if player has already been added
-          if (Registered.Any(Player =>  Player.LeagueNumber == toRegister)){
+          if (tournament.Registered.Any(Player =>  Player.LeagueNumber == toRegister)){
             Console.Clear();
             Console.WriteLine("Player already registered.");
             Console.ReadLine();
@@ -204,7 +204,7 @@ namespace Poker_Tournament_App
 
               //add player to registered list
               if (correct == "y"){
-                Registered.Add(PlayerList.Players[index]);
+                tournament.Registered.Add(PlayerList.Players[index]);
 
                 Console.Clear();
                 Console.WriteLine("Player registered.");
@@ -221,10 +221,10 @@ namespace Poker_Tournament_App
       }
     }
 
-    public static void ViewRegistered(){
+    public static void ViewRegistered(Tournament tournament){
       Console.Clear();
       Console.WriteLine("Registered players:\n");
-      foreach (Player player in Registered){
+      foreach (Player player in tournament.Registered){
         Console.WriteLine(player.Name);
       }
       Console.ReadLine();
