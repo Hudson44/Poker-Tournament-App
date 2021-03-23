@@ -6,6 +6,7 @@ namespace Poker_Tournament_App
   public class Player
   {
     public string Name {get; set;}
+    public string LeagueNumber {get; set;}
     public string DateJoined {get; set;} 
     public string Birthday {get; set;} 
     public string Hometown {get; set;}
@@ -16,15 +17,17 @@ namespace Poker_Tournament_App
     public Player()
     {
       Name = "";
+      LeagueNumber = "";
       DateJoined = "";
       Birthday = "";
       Hometown = "";
       RankChips = 0;
     }
 
-    public Player(string inName, string inDateJoined, string inBirthday, string inHometown, int inRankChips)
+    public Player(string inName, string inLeagueNumber, string inDateJoined, string inBirthday, string inHometown, int inRankChips)
     {
       Name = inName;
+      LeagueNumber = inLeagueNumber;
       DateJoined = inDateJoined;
       Birthday = inBirthday;
       Hometown = inHometown;
@@ -47,6 +50,7 @@ namespace Poker_Tournament_App
     {
       string printString = ""; 
       printString += "\nName:\t\t" + Name;
+      printString += "\nLeague Number\t" + LeagueNumber;
       printString += "\nDate Joined:\t" + DateJoined;
       printString += "\nBirthday:\t" + Birthday;
       printString += "\nHometown:\t" + Hometown;

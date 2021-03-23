@@ -8,6 +8,8 @@
  */
 
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Poker_Tournament_App
 {
@@ -23,6 +25,7 @@ namespace Poker_Tournament_App
     public string SecondPlace{get;set;}
     public string ThirdPlace{get;set;}
     public string FourthPlace{get;set;}
+    public static List<Player> Registered = new List<Player>();
 
     public Tournament()
     {
@@ -77,12 +80,20 @@ namespace Poker_Tournament_App
         Console.Clear();
         Console.WriteLine(tournament);
 
-        Console.WriteLine("\n[q] quit [edit] edit tournament");
+        Console.WriteLine("\n[q] quit [e] edit tournament \n[r] register player \n[p] view registered players");
 
         selection = Console.ReadLine();
 
-        if (selection == "edit"){
+        if (selection == "e"){
           EditTournament(tournament);
+        }
+
+        if (selection == "r"){
+          Register();
+        }
+
+        if (selection == "p"){
+          ViewRegistered();
         }
       }
     }
@@ -158,6 +169,65 @@ namespace Poker_Tournament_App
             break;
         }
       }
+    }
+
+    public static void Register(){
+      string toRegister = "";
+
+      while (toRegister != "q"){
+        int index = -1;
+        string correct = "";
+
+        Console.Clear();
+        Console.WriteLine("Enter the ID of the player to register:");
+        Console.WriteLine("\n[q] quit");
+        toRegister = Console.ReadLine();
+
+        index = PlayerList.Players.FindIndex(Player =>  Player.LeagueNumber == toRegister);
+        Console.WriteLine(index);
+
+        //check if a player with the league number exists
+        if (index != -1){
+          //check if player has already been added
+          if (Registered.Any(Player =>  Player.LeagueNumber == toRegister)){
+            Console.Clear();
+            Console.WriteLine("Player already registered.");
+            Console.ReadLine();
+          }
+          else{
+            //check if the intended ID was entered
+            while (correct != "y" && correct != "n"){
+              Console.Clear();
+              Console.WriteLine("Register new player:\n{0}", PlayerList.Players[index].Name);
+              Console.WriteLine("\n[y/n]");
+              correct = Console.ReadLine();
+
+              //add player to registered list
+              if (correct == "y"){
+                Registered.Add(PlayerList.Players[index]);
+
+                Console.Clear();
+                Console.WriteLine("Player registered.");
+                Console.ReadLine();
+              }
+            }
+          }
+        }
+        else if (toRegister != "q"){
+          Console.Clear();
+          Console.WriteLine("Player not found.");
+          Console.ReadLine();
+        }
+      }
+    }
+
+    public static void ViewRegistered(){
+      Console.Clear();
+      Console.WriteLine("Registered players:\n");
+      foreach (Player player in Registered){
+        Console.WriteLine(player.Name);
+      }
+      Console.ReadLine();
     }
   }
 }
