@@ -81,9 +81,9 @@ namespace Poker_Tournament_App{
         }
         else
         {
-          if(selection != "n" && selection != "b" && selection !="q")
+          if(selection != "n" && selection != "b" && selection !="q" && selection != "new")
           {
-            Console.WriteLine("Invald Player");
+            Console.WriteLine("Invalid Player");
           }
         }
       }
@@ -116,7 +116,7 @@ namespace Poker_Tournament_App{
             }
             else{
               Console.Clear();
-              Console.WriteLine("Enter tournament data:");
+              Console.WriteLine("Enter player data:");
               Console.WriteLine("\nError: invalid input");
               Console.WriteLine("\n" + prompt);
               enteredData = Console.ReadLine();
