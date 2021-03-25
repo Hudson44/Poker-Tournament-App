@@ -18,7 +18,7 @@ namespace Poker_Tournament_App{
       while (!(selection == "q"))
       {
         Console.Clear();
-        Console.WriteLine("Select a player by name:\n");
+        Console.WriteLine("Select a player by league number:\n");
 
         //Allow using "next" if not at the end of the list of players
         if (displayed < PlayerList.Players.Count - displayAmount)
@@ -54,11 +54,15 @@ namespace Poker_Tournament_App{
 
         int playerIndex = -1;
 
-        Console.WriteLine("\n[n] Next [b] Back [q] quit\n");
+        Console.WriteLine("\n[n] Next [b] Back [q] quit\n [new] new player");
 
         selection = Console.ReadLine();
 
-        //Select a player with SelectPlayer if its Name is entered
+        if (selection == "new"){
+          NewPlayer();
+        }
+
+        //Select a player with SelectPlayer if their league number is entered
 
         playerIndex = PlayerList.Players.FindIndex(thisPlayer => thisPlayer.LeagueNumber == selection);
 
@@ -74,6 +78,56 @@ namespace Poker_Tournament_App{
           }
         }
       }
+    }
+
+    public static void NewPlayer()
+    {
+      string enteredData;
+      bool valid = false;
+      int converted;
+      List<string> prompts = new List<string>{"Name: ", "League number: ", "Date joined: ", "Birthday: ", "Hometown: ", "Rank chips: "};
+      List<string> dataList = new List<string>();
+      Player newPlayer;
+
+      //clear list of entered data
+      dataList.Clear();
+      
+      //collect user input
+      foreach (string prompt in prompts){
+        Console.Clear();
+        Console.WriteLine("Enter player data:");
+        Console.WriteLine("\n" + prompt);
+        enteredData = Console.ReadLine();
+
+        //makes sure player counts and IDs are non negative intigers
+        if (prompts.IndexOf(prompt) == 1 || prompts.IndexOf(prompt) == 5){
+          while (!valid){
+            if (int.TryParse(enteredData, out converted) && converted > 0){
+              valid = true;
+            }
+            else{
+              Console.Clear();
+              Console.WriteLine("Enter tournament data:");
+              Console.WriteLine("\nError: invalid input");
+              Console.WriteLine("\n" + prompt);
+              enteredData = Console.ReadLine();
+            }
+          }
+          valid = false;
+        }
+
+        dataList.Add(enteredData);
+      }
+      
+      //create new tournament with user data
+      newPlayer = new Player(dataList[0], dataList[1], dataList[2], dataList[3], dataList[4], Int32.Parse(dataList[5]));
+      PlayerList.Players.Add(newPlayer);
+
+      Console.Clear();
+      Console.WriteLine("New tournament created:");
+      Console.WriteLine(newPlayer);
+      
+      Console.ReadLine();
     }
   }
 }
