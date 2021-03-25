@@ -133,7 +133,7 @@ namespace Poker_Tournament_App{
       PlayerList.Players.Add(newPlayer);
 
       Console.Clear();
-      Console.WriteLine("New tournament created:");
+      Console.WriteLine("New player created:");
       Console.WriteLine(newPlayer);
       
       Console.ReadLine();
