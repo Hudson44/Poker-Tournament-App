@@ -12,6 +12,8 @@ namespace Poker_Tournament_App{
     string selection = "";
     int displayed = 0;
     int displayAmount = 10;
+    double pages;
+    int page;
 
     GetPlayerData.GetData();
       
@@ -38,6 +40,10 @@ namespace Poker_Tournament_App{
           }
         }
 
+        //gets total pages and current page
+        pages = Math.Ceiling(Convert.ToDouble(PlayerList.Players.Count)/displayAmount);
+        page = displayed/displayAmount + 1;
+
         //Prevent errors when the end of the list is reached
         try
         {
@@ -54,7 +60,10 @@ namespace Poker_Tournament_App{
 
         int playerIndex = -1;
 
-        Console.WriteLine("\n[n] Next [b] Back [q] quit\n [new] new player");
+        //displays page information
+        Console.WriteLine("\nPage {0}/{1}", page.ToString(), pages.ToString());
+
+        Console.WriteLine("\n[n] Next [b] Back [q] quit\n[new] new player");
 
         selection = Console.ReadLine();
 
