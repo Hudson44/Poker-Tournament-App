@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace Poker_Tournament_App
 {
@@ -83,6 +84,7 @@ namespace Poker_Tournament_App
       List<string> prompts = new List<string>{"Name: ", "Date: ", "Location: ", "Max players: "};
       List<string> dataList = new List<string>();
       Tournament newTournament;
+      Regex dateValidation = new Regex(@"^(?:(?:31(\/)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/)(?:0?[13-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)\d{2})$|^(?:29(\/)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)\d{2})$");
 
       //clear list of entered data
       dataList.Clear();
@@ -97,6 +99,23 @@ namespace Poker_Tournament_App
         Console.WriteLine("Enter tournament data:");
         Console.WriteLine("\n" + prompt);
         enteredData = Console.ReadLine();
+
+        //verifies date
+        if (prompts.IndexOf(prompt) == 1){
+          while (!valid){
+            if (dateValidation.IsMatch(enteredData)){
+              valid = true;
+            }
+            else{
+              Console.Clear();
+              Console.WriteLine("Enter tournament data:");
+              Console.WriteLine("\nError: invalid input");
+              Console.WriteLine("\n" + prompt);
+              enteredData = Console.ReadLine();
+            }
+          }
+          valid = false;
+        }
 
         //makes sure player count is a non negative intiger
         if (prompts.IndexOf(prompt) == 3){
