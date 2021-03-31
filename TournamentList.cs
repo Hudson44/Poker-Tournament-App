@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using System.Globalization;
 
 namespace Poker_Tournament_App
 {
@@ -84,6 +85,7 @@ namespace Poker_Tournament_App
       List<string> prompts = new List<string>{"Name: ", "Date: ", "Location: ", "Max players: "};
       List<string> dataList = new List<string>();
       Tournament newTournament;
+      DateTime date;
       Regex dateValidation = new Regex(@"^(?:(?:31(\/)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/)(?:0?[13-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)\d{2})$|^(?:29(\/)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)\d{2})$");
 
       //clear list of entered data
@@ -103,7 +105,7 @@ namespace Poker_Tournament_App
         //verifies date
         if (prompts.IndexOf(prompt) == 1){
           while (!valid){
-            if (dateValidation.IsMatch(enteredData)){
+            if (/*dateValidation.IsMatch(enteredData) && */DateTime.TryParseExact(enteredData, "dd'/'MM'/'yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out date)){
               valid = true;
             }
             else{
@@ -138,13 +140,53 @@ namespace Poker_Tournament_App
       }
       
       //create new tournament with user data
-      newTournament = new Tournament(dataList[0], dataList[1], dataList[2], dataList[3], Int32.Parse(dataList[4]), "", "", "", "", "");
+      newTournament = new Tournament(dataList[0], dataList[1], DateTime.ParseExact(dataList[2], "dd'/'MM'/'yyyy", CultureInfo.InvariantCulture), dataList[3], Int32.Parse(dataList[4]), "", "", "", "", "");
       TournamentList.Tournaments.Add(newTournament);
 
       Console.Clear();
       Console.WriteLine("New tournament created:");
       Console.WriteLine(newTournament);
       
+      Console.ReadLine();
+    }
+
+    public static void LastTournaments(){
+      //sort tournaments by descending date
+      TournamentList.Tournaments.Sort((x, y) => y.TournamentDate.CompareTo(x.TournamentDate));
+      
+      List<List<string>>tableData = new List<List<string>>();
+      List<string>row = new List<string>();
+
+      //add header row
+      row.Add("Tournament");
+      row.Add("Date");
+      tableData.Add(row);
+      
+      Console.Clear();
+      //print header
+      Console.WriteLine("Last five tournaments:");
+      Program.PrintLine();
+      Program.PrintRow(tableData[0]);
+
+      //initialize lists
+      row.Clear();
+      for(int i = 0; i < 2; i++){
+        row.Add("");
+      }
+      for(int i = 0; i < 5; i++){
+        tableData.Add(row);
+      }
+
+      //print table body
+      Program.PrintLine();
+      for (int i = 0; i < 5; i++){
+        tableData[i+1][0] = TournamentList.Tournaments[i].Name;
+        //adds date with time removed
+        tableData[i+1][1] = TournamentList.Tournaments[i].TournamentDate.Date.ToString().Substring(0,TournamentList.Tournaments[i].TournamentDate.Date.ToString().Length - 12);
+        Program.PrintRow(tableData[i]);
+      }
+      Program.PrintLine();
+
       Console.ReadLine();
     }
   }

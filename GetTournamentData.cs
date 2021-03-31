@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
+using System.Globalization;
 
 namespace Poker_Tournament_App
 {
@@ -30,8 +31,10 @@ namespace Poker_Tournament_App
             values[i] = values[i].Replace("\"", "");
           }
 
+          
+
           //create a new tournament with the data
-          newTournament = new Tournament(values[0], values[1], values[2], values[3], Int32.Parse(values[6]), values[7], values[8], values[9], values[10], values[11]);
+          newTournament = new Tournament(values[0], values[1], DateTime.Parse(values[2],CultureInfo.InvariantCulture), values[3], Int32.Parse(values[6]), values[7], values[8], values[9], values[10], values[11]);
           
           //add new tournament to the tournament list
           TournamentList.Tournaments.Add(newTournament);

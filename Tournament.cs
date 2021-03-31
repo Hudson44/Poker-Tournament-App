@@ -10,6 +10,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Globalization;
 
 namespace Poker_Tournament_App
 {
@@ -18,7 +19,7 @@ namespace Poker_Tournament_App
     public string Name{get; set;}
     public string Location{get; set;}
     public int MaxPlayers{get; set;}
-    public string TournamentDate{get;set;}
+    public DateTime TournamentDate{get;set;}
     public string TournamentID{get;set;}
     public string WinningHand{get;set;}
     public string FirstPlace{get;set;}
@@ -31,7 +32,7 @@ namespace Poker_Tournament_App
     {
       TournamentID = "";
       Name = "";
-      TournamentDate = "";
+      TournamentDate = default;
       Location = "";
       MaxPlayers = 0;
       WinningHand = "";
@@ -41,7 +42,7 @@ namespace Poker_Tournament_App
       FourthPlace = "";
     }
 
-    public Tournament(string inTournamentID, string inName, string inDate, string inLocation, int inMaxPlayers, string inWinningHand, string inFirstPlace, string inSecondPlace, string inThirdPlace, string inFourthPlace)
+    public Tournament(string inTournamentID, string inName, DateTime inDate, string inLocation, int inMaxPlayers, string inWinningHand, string inFirstPlace, string inSecondPlace, string inThirdPlace, string inFourthPlace)
     {
       TournamentID = inTournamentID;
       Name = inName;
@@ -60,7 +61,7 @@ namespace Poker_Tournament_App
       string printString = "";
       printString += "\nID:\t\t\t" + TournamentID; 
       printString += "\nName:\t\t\t" + Name;
-      printString += "\nDate:\t\t\t" + TournamentDate;
+      printString += "\nDate:\t\t\t" + TournamentDate.ToString().Substring(0, TournamentDate.Date.ToString().Length - 12);
       printString += "\nLocation:\t\t" + Location;
       printString += "\nMax Players:\t\t" + MaxPlayers;
       printString += "\nMax Winning Hand:\t" + WinningHand;
@@ -123,7 +124,8 @@ namespace Poker_Tournament_App
             break;
           case "2":
             Console.WriteLine("\nEnter new date:");
-            tournament.TournamentDate = Console.ReadLine();
+            //!add exception handling!
+            tournament.TournamentDate = DateTime.Parse(Console.ReadLine());
             break;
           case "3":
             Console.WriteLine("\nEnter new location:");

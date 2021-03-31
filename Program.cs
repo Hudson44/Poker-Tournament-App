@@ -17,14 +17,15 @@ namespace Poker_Tournament_App
         GetPlayerData.GetData();
       }
 
-      while (!(selection == "5")){
+      while (!(selection == "6")){
         Console.Clear();
         Console.WriteLine("Select an option:\n ");
         Console.WriteLine("1: Tournaments");
         Console.WriteLine("2: Players");
         Console.WriteLine("3: Overall Stats");
         Console.WriteLine("4: Top Ten Players");
-        Console.WriteLine("5: Save & Quit");
+        Console.WriteLine("5: Last Five Tournaments");
+        Console.WriteLine("6: Save & Quit");
         selection = Console.ReadLine();
       
         if (selection == "1")
@@ -42,6 +43,10 @@ namespace Poker_Tournament_App
         else if(selection == "4")
         {
           PlayerList.TopTen();
+        }
+        else if(selection == "5")
+        {
+          TournamentList.LastTournaments();
         }
       }
     }
