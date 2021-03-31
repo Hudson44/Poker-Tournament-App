@@ -28,25 +28,22 @@ namespace Poker_Tournament_App
         Console.WriteLine("6: Save & Quit");
         selection = Console.ReadLine();
       
-        if (selection == "1")
-        {
-          TournamentList.ViewTournaments();
-        }
-        else if(selection == "2")
-        {
-          PlayerList.ViewPlayers();
-        }
-        else if(selection == "3")
-        {
-          Console.WriteLine("Overall Stats.");
-        }
-        else if(selection == "4")
-        {
-          PlayerList.TopTen();
-        }
-        else if(selection == "5")
-        {
-          TournamentList.LastTournaments();
+        switch(selection){
+          case "1":
+            TournamentList.ViewTournaments();
+            break;
+          case "2":
+            PlayerList.ViewPlayers();
+            break;
+          case "3":
+            Console.WriteLine("Overall Stats.");
+            break;
+          case "4":
+            PlayerList.TopTen();
+            break;
+          case "5":
+            TournamentList.LastTournaments();
+            break;
         }
       }
     }
