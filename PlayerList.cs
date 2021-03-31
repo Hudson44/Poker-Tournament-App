@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data;
 
 namespace Poker_Tournament_App{
   public static class PlayerList {
@@ -9,13 +10,16 @@ namespace Poker_Tournament_App{
    
   public static void ViewPlayers()
   {
+    
     string selection = "";
     int displayed = 0;
     int displayAmount = 10;
     double pages;
     int page;
 
-    GetPlayerData.GetData();
+    //sorts players by ascending league number
+    PlayerList.Players.Sort((x, y) => x.LeagueNumber.CompareTo(y.LeagueNumber));
+    
       
       while (!(selection == "q"))
       {
@@ -136,6 +140,45 @@ namespace Poker_Tournament_App{
       Console.WriteLine("New player created:");
       Console.WriteLine(newPlayer);
       
+      Console.ReadLine();
+    }
+
+    public static void TopTen(){
+      //sort players by descending rank chips
+      PlayerList.Players.Sort((x, y) => y.RankChips.CompareTo(x.RankChips));
+      
+      List<List<string>>tableData = new List<List<string>>();
+      List<string>row = new List<string>();
+
+      //add header row
+      row.Add("Player");
+      row.Add("Rank Chips");
+      tableData.Add(row);
+      
+      Console.Clear();
+      //print header
+      Console.WriteLine("Top ten players:");
+      Program.PrintLine();
+      Program.PrintRow(tableData[0]);
+
+      //initialize lists
+      row.Clear();
+      for(int i = 0; i < 2; i++){
+        row.Add("");
+      }
+      for(int i = 0; i < 10; i++){
+        tableData.Add(row);
+      }
+
+      //print table body
+      Program.PrintLine();
+      for (int i = 0; i < 10; i++){
+        tableData[i+1][0] = PlayerList.Players[i].Name;
+        tableData[i+1][1] = PlayerList.Players[i].RankChips.ToString();
+        Program.PrintRow(tableData[i]);
+      }
+      Program.PrintLine();
+
       Console.ReadLine();
     }
   }
