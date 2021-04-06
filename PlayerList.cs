@@ -158,8 +158,8 @@ namespace Poker_Tournament_App{
       Console.Clear();
       //print header
       Console.WriteLine("Top ten players:");
-      Program.PrintLine();
-      Program.PrintRow(tableData[0]);
+      DisplayTable.PrintLine();
+      DisplayTable.PrintRow(tableData[0]);
 
       //initialize lists
       row.Clear();
@@ -171,13 +171,13 @@ namespace Poker_Tournament_App{
       }
 
       //print table body
-      Program.PrintLine();
+      DisplayTable.PrintLine();
       for (int i = 0; i < 10; i++){
         tableData[i+1][0] = PlayerList.Players[i].Name;
         tableData[i+1][1] = PlayerList.Players[i].RankChips.ToString();
-        Program.PrintRow(tableData[i]);
+        DisplayTable.PrintRow(tableData[i]);
       }
-      Program.PrintLine();
+      DisplayTable.PrintLine();
 
       Console.ReadLine();
     }

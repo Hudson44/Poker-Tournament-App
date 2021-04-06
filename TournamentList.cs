@@ -164,8 +164,8 @@ namespace Poker_Tournament_App
       Console.Clear();
       //print header
       Console.WriteLine("Last five tournaments:");
-      Program.PrintLine();
-      Program.PrintRow(tableData[0]);
+      DisplayTable.PrintLine();
+      DisplayTable.PrintRow(tableData[0]);
 
       //initialize lists
       row.Clear();
@@ -177,14 +177,14 @@ namespace Poker_Tournament_App
       }
 
       //print table body
-      Program.PrintLine();
+      DisplayTable.PrintLine();
       for (int i = 0; i < 5; i++){
         tableData[i+1][0] = TournamentList.Tournaments[i].Name;
         //adds date with time removed
         tableData[i+1][1] = TournamentList.Tournaments[i].TournamentDate.Date.ToString().Substring(0,TournamentList.Tournaments[i].TournamentDate.Date.ToString().Length - 12);
-        Program.PrintRow(tableData[i]);
+        DisplayTable.PrintRow(tableData[i]);
       }
-      Program.PrintLine();
+      DisplayTable.PrintLine();
 
       Console.ReadLine();
     }
