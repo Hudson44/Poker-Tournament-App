@@ -167,8 +167,9 @@ namespace Poker_Tournament_App
             break;
           case "2":
             Console.WriteLine("\nEnter new date:");
-            //!add exception handling!
-            tournament.TournamentDate = DateTime.Parse(Console.ReadLine());
+            string errorMessage = "Error: invalid input \n\nEnter new date:";
+
+            tournament.TournamentDate = DateTime.Parse(Program.VerifyDate(Console.ReadLine(), errorMessage));
             break;
           case "3":
             Console.WriteLine("\nEnter new location:");

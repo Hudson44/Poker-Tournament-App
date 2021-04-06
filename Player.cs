@@ -51,7 +51,7 @@ namespace Poker_Tournament_App
       string printString = ""; 
       printString += "\nName:\t\t" + Name;
       printString += "\nLeague Number\t" + LeagueNumber;
-      printString += "\nDate Joined:\t" + DateJoined;
+      printString += "\nDate Joined:\t" + DateJoined.ToString().Substring(0, DateJoined.ToString().Length - 12);
       printString += "\nBirthday:\t" + Birthday;
       printString += "\nHometown:\t" + Hometown;
       printString += "\nRank Chips:\t" + RankChips;
@@ -103,8 +103,9 @@ namespace Poker_Tournament_App
             break;
           case "2":
             Console.WriteLine("\nEnter new date joined:");
-            //!add exception handling!
-            player.DateJoined = DateTime.Parse(Console.ReadLine());
+            string errorMessage = "Error: invalid input \n\nEnter new date joined:";
+            
+            player.DateJoined = DateTime.Parse(Program.VerifyDate(Console.ReadLine(), errorMessage));
             break;
           case "3":
             Console.WriteLine("\nEnter new birthday:");
