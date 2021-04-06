@@ -73,6 +73,10 @@ namespace Poker_Tournament_App
       return printString;
     }
 
+    ////////////////////////////////////////
+    // alternative tournament display option
+    ////////////////////////////////////////
+    /*
     public static void DisplayTournament(Tournament tournament){
       //lists for table information
       List<string> tournamentFields = tournament.GetType().GetProperties().Select(f => f.Name).ToList();
@@ -107,12 +111,20 @@ namespace Poker_Tournament_App
       DisplayTable.PrintLine();
       for (int i = 0; i < tournamentFields.Count; i++){
         DisplayTable.tableData[i+1][0] = tournamentFields[i];
-        DisplayTable.tableData[i+1][1] = tournamentInfo[i];
+        if (i == 2){
+          // removes time from date
+          DisplayTable.tableData[i+1][1] = tournamentInfo[i].Substring(0, tournamentInfo[i].ToString().Length - 12);
+        }
+        else{
+          DisplayTable.tableData[i+1][1] = tournamentInfo[i];
+        }
+        
         DisplayTable.PrintRow(DisplayTable.tableData[i]);
       }
       DisplayTable.PrintLine();
       DisplayTable.Clear();
     }
+    */
 
     //displays information for a selected tournament
     public static void SelectTournament(Tournament tournament)
@@ -121,8 +133,7 @@ namespace Poker_Tournament_App
 
       while (selection != "q"){
         Console.Clear();
-        //Console.WriteLine(tournament);
-        DisplayTournament(tournament);
+        Console.WriteLine(tournament);
 
         Console.WriteLine("\n[q] quit [e] edit tournament \n[r] register player \n[p] view registered players");
 
