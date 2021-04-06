@@ -3,6 +3,7 @@ using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Data;
+using System.Globalization;
 
 namespace Poker_Tournament_App{
   public static class PlayerList {
@@ -133,7 +134,7 @@ namespace Poker_Tournament_App{
       }
       
       //create new tournament with user data
-      newPlayer = new Player(dataList[0], dataList[1], dataList[2], dataList[3], dataList[4], Int32.Parse(dataList[5]));
+      newPlayer = new Player(dataList[0], dataList[1], DateTime.Parse(dataList[2],CultureInfo.InvariantCulture), dataList[3], dataList[4], Int32.Parse(dataList[5]));
       PlayerList.Players.Add(newPlayer);
 
       Console.Clear();

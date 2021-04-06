@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Globalization;
 
 namespace Poker_Tournament_App
 {
@@ -21,7 +22,7 @@ namespace Poker_Tournament_App
           //Player information from csv file
           string line = reader.ReadLine();
           string[] values = line.Split(',');
-          newPlayer = new Player((values[0] + "," + values[1]).Replace("\"", ""), values[2], values[3], values[4], values[5], 0);
+          newPlayer = new Player((values[0] + "," + values[1]).Replace("\"", ""), values[2], DateTime.Parse(values[3],CultureInfo.InvariantCulture), values[4], values[5], 0);
           
           //Player winning hand from csv file
           foreach (string value in values)

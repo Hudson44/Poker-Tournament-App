@@ -46,5 +46,10 @@ namespace Poker_Tournament_App
         }
       }
     }
+
+    public static void VerifyDate(){
+      //!move date verification here!
+      
+    }
   }
 }
