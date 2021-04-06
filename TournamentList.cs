@@ -80,12 +80,12 @@ namespace Poker_Tournament_App
     public static void NewTournament()
     {
       string enteredData;
-      bool valid = false;
       int converted;
+      bool valid = false;
       List<string> prompts = new List<string>{"Name: ", "Date: ", "Location: ", "Max players: "};
       List<string> dataList = new List<string>();
       Tournament newTournament;
-      DateTime date;
+      
       
       //clear list of entered data
       dataList.Clear();
@@ -103,19 +103,8 @@ namespace Poker_Tournament_App
 
         //verifies date
         if (prompts.IndexOf(prompt) == 1){
-          while (!valid){
-            if (DateTime.TryParseExact(enteredData, "dd'/'MM'/'yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out date)){
-              valid = true;
-            }
-            else{
-              Console.Clear();
-              Console.WriteLine("Enter tournament data:");
-              Console.WriteLine("\nError: invalid input");
-              Console.WriteLine("\n" + prompt);
-              enteredData = Console.ReadLine();
-            }
-          }
-          valid = false;
+          string errorMessage = "Enter tournament data: \n\nError: invalid input \n\n" + prompt;
+          enteredData = Program.VerifyDate(enteredData, errorMessage);
         }
 
         //makes sure player count is a non negative intiger

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Globalization;
 
 namespace Poker_Tournament_App
 {
@@ -47,9 +48,20 @@ namespace Poker_Tournament_App
       }
     }
 
-    public static void VerifyDate(){
-      //!move date verification here!
-      
+    public static string VerifyDate(string stringDate, string errorMessage){
+      DateTime date;
+
+      while (true){
+        if (DateTime.TryParseExact(stringDate, "dd'/'MM'/'yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out date)){
+          //returns date as string without time
+          return date.ToString().Substring(0, date.ToString().Length - 12);
+        }
+        else{
+          Console.Clear();
+          Console.WriteLine(errorMessage);
+          stringDate = Console.ReadLine();
+        }
+      }
     }
   }
 }
