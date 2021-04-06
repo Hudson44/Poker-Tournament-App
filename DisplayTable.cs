@@ -5,6 +5,8 @@ namespace Poker_Tournament_App
 {
   public class DisplayTable
   {
+    public static List<List<string>> tableData = new List<List<string>>();
+    public static List<string> row = new List<string>();
     static int tableWidth = 73;
     public static void PrintLine()
     {
@@ -36,6 +38,11 @@ namespace Poker_Tournament_App
       {
         return text.PadRight(width - (width - text.Length) / 2).PadLeft(width);
       }
+    }
+
+    public static void Clear(){
+      tableData.Clear();
+      row.Clear();
     }
   }
 }

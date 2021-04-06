@@ -11,16 +11,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace Poker_Tournament_App
 {
   public class Tournament
   {
+    public string TournamentID{get;set;}
     public string Name{get; set;}
+    public DateTime TournamentDate{get;set;}
     public string Location{get; set;}
     public int MaxPlayers{get; set;}
-    public DateTime TournamentDate{get;set;}
-    public string TournamentID{get;set;}
     public string WinningHand{get;set;}
     public string FirstPlace{get;set;}
     public string SecondPlace{get;set;}
@@ -64,12 +65,53 @@ namespace Poker_Tournament_App
       printString += "\nDate:\t\t\t" + TournamentDate.ToString().Substring(0, TournamentDate.Date.ToString().Length - 12);
       printString += "\nLocation:\t\t" + Location;
       printString += "\nMax Players:\t\t" + MaxPlayers;
-      printString += "\nMax Winning Hand:\t" + WinningHand;
+      printString += "\nWinning Hand:\t\t" + WinningHand;
       printString += "\nFirst Place:\t\t" + FirstPlace;
       printString += "\nSecond Place:\t\t" + SecondPlace;
       printString += "\nThird Place:\t\t" + ThirdPlace;
       printString += "\nFourth Place:\t\t" + FourthPlace;
       return printString;
+    }
+
+    public static void DisplayTournament(Tournament tournament){
+      //lists for table information
+      List<string> tournamentFields = tournament.GetType().GetProperties().Select(f => f.Name).ToList();
+      List<string> tournamentInfo = new List<string>();
+
+      for(int i = 0; i < tournamentFields.Count; i++){
+        //adds value of respective field to tournamentInfo
+        tournamentInfo.Add(tournament.GetType().GetProperty(tournamentFields[i]).GetValue(tournament).ToString());
+        //adds spaces to field names in tournamentfields
+        tournamentFields[i] = (Regex.Replace(tournamentFields[i], @"((?<=\p{Ll})\p{Lu})|((?!\A)\p{Lu}(?>\p{Ll}))", " $0"));
+      }
+
+      //add header row
+      DisplayTable.row.Add("Tournament Information");
+      DisplayTable.tableData.Add(DisplayTable.row);
+      
+      Console.Clear();
+      //print header
+      DisplayTable.PrintLine();
+      DisplayTable.PrintRow(DisplayTable.tableData[0]);
+
+      //initialize lists
+      DisplayTable.row.Clear();
+      for(int i = 0; i < 2; i++){
+        DisplayTable.row.Add("");
+      }
+      for(int i = 0; i < tournamentFields.Count; i++){
+        DisplayTable.tableData.Add(DisplayTable.row);
+      }
+
+      //print table body
+      DisplayTable.PrintLine();
+      for (int i = 0; i < tournamentFields.Count; i++){
+        DisplayTable.tableData[i+1][0] = tournamentFields[i];
+        DisplayTable.tableData[i+1][1] = tournamentInfo[i];
+        DisplayTable.PrintRow(DisplayTable.tableData[i]);
+      }
+      DisplayTable.PrintLine();
+      DisplayTable.Clear();
     }
 
     //displays information for a selected tournament
@@ -79,7 +121,8 @@ namespace Poker_Tournament_App
 
       while (selection != "q"){
         Console.Clear();
-        Console.WriteLine(tournament);
+        //Console.WriteLine(tournament);
+        DisplayTournament(tournament);
 
         Console.WriteLine("\n[q] quit [e] edit tournament \n[r] register player \n[p] view registered players");
 

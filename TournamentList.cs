@@ -152,39 +152,37 @@ namespace Poker_Tournament_App
     public static void LastTournaments(){
       //sort tournaments by descending date
       TournamentList.Tournaments.Sort((x, y) => y.TournamentDate.CompareTo(x.TournamentDate));
-      
-      List<List<string>>tableData = new List<List<string>>();
-      List<string>row = new List<string>();
 
       //add header row
-      row.Add("Tournament");
-      row.Add("Date");
-      tableData.Add(row);
+      DisplayTable.row.Add("Tournament");
+      DisplayTable.row.Add("Date");
+      DisplayTable.tableData.Add(DisplayTable.row);
       
       Console.Clear();
       //print header
       Console.WriteLine("Last five tournaments:");
       DisplayTable.PrintLine();
-      DisplayTable.PrintRow(tableData[0]);
+      DisplayTable.PrintRow(DisplayTable.tableData[0]);
 
       //initialize lists
-      row.Clear();
+      DisplayTable.row.Clear();
       for(int i = 0; i < 2; i++){
-        row.Add("");
+        DisplayTable.row.Add("");
       }
       for(int i = 0; i < 5; i++){
-        tableData.Add(row);
+        DisplayTable.tableData.Add(DisplayTable.row);
       }
 
       //print table body
       DisplayTable.PrintLine();
       for (int i = 0; i < 5; i++){
-        tableData[i+1][0] = TournamentList.Tournaments[i].Name;
+        DisplayTable.tableData[i+1][0] = TournamentList.Tournaments[i].Name;
         //adds date with time removed
-        tableData[i+1][1] = TournamentList.Tournaments[i].TournamentDate.Date.ToString().Substring(0,TournamentList.Tournaments[i].TournamentDate.Date.ToString().Length - 12);
-        DisplayTable.PrintRow(tableData[i]);
+        DisplayTable.tableData[i+1][1] = TournamentList.Tournaments[i].TournamentDate.Date.ToString().Substring(0,TournamentList.Tournaments[i].TournamentDate.Date.ToString().Length - 12);
+        DisplayTable.PrintRow(DisplayTable.tableData[i]);
       }
       DisplayTable.PrintLine();
+      DisplayTable.Clear();
 
       Console.ReadLine();
     }
