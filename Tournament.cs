@@ -162,8 +162,17 @@ namespace Poker_Tournament_App
         Console.Clear();
 
         Console.WriteLine(tournament);
-        Console.WriteLine("\nWhat to edit:");
-        Console.WriteLine("\n1. Name \n2. Date \n3. Location \n4. Max players \n5. Winning hand \n6. First place \n7. Second place \n8. Third place \n9. Fourth place \n\n[q] quit");
+        Console.WriteLine("\nWhat to edit: \n\n"+
+                          "1. Name \n"+
+                          "2. Date \n"+
+                          "3. Location \n"+
+                          "4. Max players \n"+
+                          "5. Winning hand \n"+
+                          "6. First place \n"+
+                          "7. Second place \n"+
+                          "8. Third place \n"+
+                          "9. Fourth place \n\n"+
+                          "[q] quit");
 
         toEdit = Console.ReadLine();
         
@@ -175,8 +184,8 @@ namespace Poker_Tournament_App
             tournament.Name = Console.ReadLine();
             break;
           case "2":
-            Console.WriteLine("\nEnter new date:");
-            errorMessage = "Error: invalid input \n\nEnter new date:";
+            Console.WriteLine("\nEnter new date [mm/dd/yyyy]:");
+            errorMessage = "Error: invalid input \n\nEnter new date [mm/dd/yyyy]:";
 
             tournament.TournamentDate = DateTime.Parse(Program.VerifyDate(Console.ReadLine(), errorMessage));
             break;
@@ -191,7 +200,7 @@ namespace Poker_Tournament_App
             tournament.MaxPlayers = Program.VerifyInt(Console.ReadLine(), errorMessage);
             break;
           case "5":
-            Console.WriteLine("\nEnter new winnig hand:");
+            Console.WriteLine("\nEnter new winning hand:");
             tournament.WinningHand = Console.ReadLine();
             break;
           case "6":

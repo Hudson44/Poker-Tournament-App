@@ -59,7 +59,7 @@ namespace Poker_Tournament_App
         Console.WriteLine("\nPage {0}/{1}", page.ToString(), pages.ToString());
 
         //display user prompts
-        Console.WriteLine("\n[n] Next [b] Back [q] quit \n[new] new tournament\n");
+        Console.WriteLine("\n[n] Next [b] Back [q] quit \n[new] new tournament");
 
         selection = Console.ReadLine();
 
@@ -81,7 +81,7 @@ namespace Poker_Tournament_App
     {
       string enteredData;
       string errorMessage;
-      List<string> prompts = new List<string>{"Name: ", "Date: ", "Location: ", "Max players: "};
+      List<string> prompts = new List<string>{"Name: ", "Date [mm/dd/yyyy]: ", "Location: ", "Max players: "};
       List<string> dataList = new List<string>();
       Tournament newTournament;
       
@@ -109,7 +109,6 @@ namespace Poker_Tournament_App
         //makes sure player count is a non negative intiger
         if (prompts.IndexOf(prompt) == 3){
           errorMessage = "Enter tournament data: \n\nError: invalid input \n\n" + prompt;
-          
           enteredData = Program.VerifyInt(enteredData, errorMessage).ToString();
         }
 

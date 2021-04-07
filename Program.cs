@@ -17,15 +17,16 @@ namespace Poker_Tournament_App
         GetPlayerData.GetData();
       }
 
-      while (!(selection == "6")){
+      while (!(selection == "0")){
         Console.Clear();
-        Console.WriteLine("Select an option:\n ");
-        Console.WriteLine("1: Tournaments");
-        Console.WriteLine("2: Players");
-        Console.WriteLine("3: Overall Stats");
-        Console.WriteLine("4: Top Ten Players");
-        Console.WriteLine("5: Last Five Tournaments");
-        Console.WriteLine("6: Save & Quit");
+        Console.WriteLine("Select an option:\n\n"+
+                          "1: Tournaments \n"+
+                          "2: Players \n"+
+                          "3: Overall Stats \n"+
+                          "4: Top Ten Players \n"+
+                          "5: Last Five Tournaments \n"+
+                          "0: Save & Quit");
+
         selection = Console.ReadLine();
       
         switch(selection){
@@ -53,8 +54,7 @@ namespace Poker_Tournament_App
 
       while (true){
         if (DateTime.TryParseExact(stringDate, "dd'/'MM'/'yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out date)){
-          //returns date as string without time
-          return date.ToString().Substring(0, date.ToString().Length - 12);
+          return date.ToString("dd/MM/yyyy").Substring(0, date.ToString().Length - 11);
         }
         else{
           Console.Clear();

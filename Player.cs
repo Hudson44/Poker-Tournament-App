@@ -87,8 +87,13 @@ namespace Poker_Tournament_App
         Console.Clear();
 
         Console.WriteLine(player);
-        Console.WriteLine("\nWhat to edit:");
-        Console.WriteLine("\n1. Name \n2. Date joined \n3. Birthday \n4. Hometown \n5. Rank chips \n\n[q] quit");
+        Console.WriteLine("\nWhat to edit: \n\n"+
+                          "1. Name \n"+
+                          "2. Date joined \n"+
+                          "3. Birthday \n"+
+                          "4. Hometown \n"+
+                          "5. Rank chips \n\n"+
+                          "[q] quit");
 
         toEdit = Console.ReadLine();
         
@@ -100,8 +105,8 @@ namespace Poker_Tournament_App
             player.Name = Console.ReadLine();
             break;
           case "2":
-            Console.WriteLine("\nEnter new date joined:");
-            string errorMessage = "Error: invalid input \n\nEnter new date joined:";
+            Console.WriteLine("\nEnter new date joined [mm/dd/yyyy]:");
+            string errorMessage = "Error: invalid input \n\nEnter new date joined [mm/dd/yyyy]:";
 
             player.DateJoined = DateTime.Parse(Program.VerifyDate(Console.ReadLine(), errorMessage));
             break;
