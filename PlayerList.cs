@@ -112,6 +112,12 @@ namespace Poker_Tournament_App{
         Console.WriteLine("\n" + prompt);
         enteredData = Console.ReadLine();
 
+        //verifies date
+        if (prompts.IndexOf(prompt) == 2){
+          errorMessage = "Enter tournament data: \n\nError: invalid input \n\n" + prompt;
+          enteredData = Program.VerifyDate(enteredData, errorMessage);
+        }
+
         //makes sure player counts and IDs are non negative intigers
         if (prompts.IndexOf(prompt) == 1 || prompts.IndexOf(prompt) == 5){
           errorMessage = "Enter player data: \n\nError: invalid input \n\n" + prompt;
