@@ -63,5 +63,20 @@ namespace Poker_Tournament_App
         }
       }
     }
+
+    public static int VerifyInt(string stringNum, string errorMessage){
+      int intiger;
+
+      while (true){
+        if (int.TryParse(stringNum, out intiger) && intiger > 0){
+          return intiger;
+        }
+        else{
+          Console.Clear();
+          Console.WriteLine(errorMessage);
+          stringNum = Console.ReadLine();
+        }
+      }
+    }
   }
 }

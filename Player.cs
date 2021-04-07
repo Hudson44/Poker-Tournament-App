@@ -80,9 +80,7 @@ namespace Poker_Tournament_App
 
     public static void EditPlayer(Player player)
     {
-      bool valid = false;
-      int converted;
-      string chips;
+
       string toEdit = "";
 
       while (toEdit != "q"){
@@ -104,7 +102,7 @@ namespace Poker_Tournament_App
           case "2":
             Console.WriteLine("\nEnter new date joined:");
             string errorMessage = "Error: invalid input \n\nEnter new date joined:";
-            
+
             player.DateJoined = DateTime.Parse(Program.VerifyDate(Console.ReadLine(), errorMessage));
             break;
           case "3":
@@ -117,21 +115,9 @@ namespace Poker_Tournament_App
             break;
           case "5":
             Console.WriteLine("\nEnter new rank chips:");
-
-            //makes sure rank chip count is a non negative intiger
-            while (!valid){
-              chips = Console.ReadLine();
-              if (int.TryParse(chips, out converted) && converted > 0){
-                player.RankChips = Int32.Parse(chips);
-                valid = true;
-              }
-              else{
-                Console.Clear();
-                Console.WriteLine("\nError: invalid input");
-                Console.WriteLine("\nEnter new rank chips:");
-              }
-            }
-            valid = false;
+            errorMessage = "Error: invalid input \n\nEnter new rank chips:";
+            
+            player.RankChips = Program.VerifyInt(Console.ReadLine(), errorMessage);
             break;
         }
       }

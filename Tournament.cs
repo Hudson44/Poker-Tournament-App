@@ -155,10 +155,8 @@ namespace Poker_Tournament_App
 
     public static void EditTournament(Tournament tournament)
     {
-      bool valid = false;
-      int converted;
-      string playerCount;
       string toEdit = "";
+      string errorMessage;
 
       while (toEdit != "q"){
         Console.Clear();
@@ -178,7 +176,7 @@ namespace Poker_Tournament_App
             break;
           case "2":
             Console.WriteLine("\nEnter new date:");
-            string errorMessage = "Error: invalid input \n\nEnter new date:";
+            errorMessage = "Error: invalid input \n\nEnter new date:";
 
             tournament.TournamentDate = DateTime.Parse(Program.VerifyDate(Console.ReadLine(), errorMessage));
             break;
@@ -188,21 +186,9 @@ namespace Poker_Tournament_App
             break;
           case "4":
             Console.WriteLine("\nEnter new max player amount:");
-
-            //makes sure player count is a non negative intiger
-            while (!valid){
-              playerCount = Console.ReadLine();
-              if (int.TryParse(playerCount, out converted) && converted > 0){
-                tournament.MaxPlayers = Int32.Parse(playerCount);
-                valid = true;
-              }
-              else{
-                Console.Clear();
-                Console.WriteLine("\nError: invalid input");
-                Console.WriteLine("\nEnter new max player amount:");
-              }
-            }
-            valid = false;
+            errorMessage = "Error: invalid input \n\nEnter new max player amount:";
+            
+            tournament.MaxPlayers = Program.VerifyInt(Console.ReadLine(), errorMessage);
             break;
           case "5":
             Console.WriteLine("\nEnter new winnig hand:");

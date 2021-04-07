@@ -80,8 +80,7 @@ namespace Poker_Tournament_App
     public static void NewTournament()
     {
       string enteredData;
-      int converted;
-      bool valid = false;
+      string errorMessage;
       List<string> prompts = new List<string>{"Name: ", "Date: ", "Location: ", "Max players: "};
       List<string> dataList = new List<string>();
       Tournament newTournament;
@@ -103,25 +102,15 @@ namespace Poker_Tournament_App
 
         //verifies date
         if (prompts.IndexOf(prompt) == 1){
-          string errorMessage = "Enter tournament data: \n\nError: invalid input \n\n" + prompt;
+          errorMessage = "Enter tournament data: \n\nError: invalid input \n\n" + prompt;
           enteredData = Program.VerifyDate(enteredData, errorMessage);
         }
 
         //makes sure player count is a non negative intiger
         if (prompts.IndexOf(prompt) == 3){
-          while (!valid){
-            if (int.TryParse(enteredData, out converted) && converted > 0){
-              valid = true;
-            }
-            else{
-              Console.Clear();
-              Console.WriteLine("Enter tournament data:");
-              Console.WriteLine("\nError: invalid input");
-              Console.WriteLine("\n" + prompt);
-              enteredData = Console.ReadLine();
-            }
-          }
-          valid = false;
+          errorMessage = "Enter tournament data: \n\nError: invalid input \n\n" + prompt;
+          
+          enteredData = Program.VerifyInt(enteredData, errorMessage).ToString();
         }
 
         dataList.Add(enteredData);
