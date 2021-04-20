@@ -155,7 +155,7 @@ namespace Poker_Tournament_App
       for (int i = 0; i < 5; i++){
         DisplayTable.tableData[i+1][0] = TournamentList.Tournaments[i].Name;
         //adds date with time removed
-        DisplayTable.tableData[i+1][1] = TournamentList.Tournaments[i].TournamentDate.Date.ToString().Substring(0,TournamentList.Tournaments[i].TournamentDate.Date.ToString().Length - 12);
+        DisplayTable.tableData[i+1][1] = TournamentList.Tournaments[i].TournamentDate.Date.ToString("dd/MM/yyyy");
         DisplayTable.PrintRow(DisplayTable.tableData[i]);
       }
       DisplayTable.PrintLine();
