@@ -108,7 +108,7 @@ namespace Poker_Tournament_App
             Console.WriteLine("\nEnter new date joined [mm/dd/yyyy]:");
             string errorMessage = "Error: invalid input \n\nEnter new date joined [mm/dd/yyyy]:";
 
-            player.DateJoined = DateTime.Parse(Program.VerifyDate(Console.ReadLine(), errorMessage));
+            player.DateJoined = DateTime.Parse(Validate.ValidateDate(Console.ReadLine(), errorMessage));
             break;
           case "3":
             Console.WriteLine("\nEnter new birthday:");
@@ -122,7 +122,7 @@ namespace Poker_Tournament_App
             Console.WriteLine("\nEnter new rank chips:");
             errorMessage = "Error: invalid input \n\nEnter new rank chips:";
             
-            player.RankChips = Program.VerifyInt(Console.ReadLine(), errorMessage);
+            player.RankChips = Validate.ValidateInt(Console.ReadLine(), errorMessage);
             break;
         }
       }

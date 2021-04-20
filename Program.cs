@@ -48,36 +48,5 @@ namespace Poker_Tournament_App
         }
       }
     }
-
-    public static string VerifyDate(string stringDate, string errorMessage){
-      DateTime date;
-
-      while (true){
-        if (DateTime.TryParseExact(stringDate, "dd'/'MM'/'yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out date)){
-          Console.WriteLine(date.ToString("dd/MM/yyyy"));
-          return date.ToString("dd/MM/yyyy");
-        }
-        else{
-          Console.Clear();
-          Console.WriteLine(errorMessage);
-          stringDate = Console.ReadLine();
-        }
-      }
-    }
-
-    public static int VerifyInt(string stringNum, string errorMessage){
-      int intiger;
-
-      while (true){
-        if (int.TryParse(stringNum, out intiger) && intiger > 0){
-          return intiger;
-        }
-        else{
-          Console.Clear();
-          Console.WriteLine(errorMessage);
-          stringNum = Console.ReadLine();
-        }
-      }
-    }
   }
 }

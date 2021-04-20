@@ -187,7 +187,7 @@ namespace Poker_Tournament_App
             Console.WriteLine("\nEnter new date [mm/dd/yyyy]:");
             errorMessage = "Error: invalid input \n\nEnter new date [mm/dd/yyyy]:";
 
-            tournament.TournamentDate = DateTime.Parse(Program.VerifyDate(Console.ReadLine(), errorMessage));
+            tournament.TournamentDate = DateTime.Parse(Validate.ValidateDate(Console.ReadLine(), errorMessage));
             break;
           case "3":
             Console.WriteLine("\nEnter new location:");
@@ -197,7 +197,7 @@ namespace Poker_Tournament_App
             Console.WriteLine("\nEnter new max player amount:");
             errorMessage = "Error: invalid input \n\nEnter new max player amount:";
             
-            tournament.MaxPlayers = Program.VerifyInt(Console.ReadLine(), errorMessage);
+            tournament.MaxPlayers = Validate.ValidateInt(Console.ReadLine(), errorMessage);
             break;
           case "5":
             Console.WriteLine("\nEnter new winning hand:");

@@ -103,13 +103,13 @@ namespace Poker_Tournament_App
         //verifies date
         if (prompts.IndexOf(prompt) == 1){
           errorMessage = "Enter tournament data: \n\nError: invalid input \n\n" + prompt;
-          enteredData = Program.VerifyDate(enteredData, errorMessage);
+          enteredData = Validate.ValidateDate(enteredData, errorMessage);
         }
 
         //makes sure player count is a non negative intiger
         if (prompts.IndexOf(prompt) == 3){
           errorMessage = "Enter tournament data: \n\nError: invalid input \n\n" + prompt;
-          enteredData = Program.VerifyInt(enteredData, errorMessage).ToString();
+          enteredData = Validate.ValidateInt(enteredData, errorMessage).ToString();
         }
 
         dataList.Add(enteredData);
