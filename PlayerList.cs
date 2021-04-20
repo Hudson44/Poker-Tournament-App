@@ -97,7 +97,7 @@ namespace Poker_Tournament_App{
     public static void NewPlayer()
     {
       string enteredData;
-      List<string> prompts = new List<string>{"Name: ", "League number: ", "Date joined [mm/dd/yyyy]: ", "Birthday: ", "Hometown: ", "Rank chips: "};
+      List<string> prompts = new List<string>{"Name: ", "League number: ", "Date joined [dd/mm/yyyy]: ", "Birthday: ", "Hometown: ", "Rank chips: "};
       List<string> dataList = new List<string>();
       Player newPlayer;
       string errorMessage;
@@ -129,7 +129,7 @@ namespace Poker_Tournament_App{
       }
       
       //create new player with user data
-      newPlayer = new Player(dataList[0], dataList[1], DateTime.ParseExact(dataList[2], "dd'/'MM'/'yyyy", CultureInfo.InvariantCulture), dataList[3], dataList[4], Int32.Parse(dataList[5]));
+      newPlayer = new Player(dataList[0], dataList[1], DateTime.ParseExact(dataList[2], "dd'/'MM'/'yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None), dataList[3], dataList[4], Int32.Parse(dataList[5]));
       PlayerList.Players.Add(newPlayer);
 
       Console.Clear();

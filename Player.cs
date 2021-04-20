@@ -51,7 +51,7 @@ namespace Poker_Tournament_App
       string printString = ""; 
       printString += "\nName:\t\t" + Name;
       printString += "\nLeague Number\t" + LeagueNumber;
-      printString += "\nDate Joined:\t" + DateJoined.ToString().Substring(0, DateJoined.ToString().Length - 12);
+      printString += "\nDate Joined:\t" + DateJoined.ToString("dd/MM/yyyy");
       printString += "\nBirthday:\t" + Birthday;
       printString += "\nHometown:\t" + Hometown;
       printString += "\nRank Chips:\t" + RankChips;

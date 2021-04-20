@@ -62,7 +62,7 @@ namespace Poker_Tournament_App
       string printString = "";
       printString += "\nID:\t\t\t" + TournamentID; 
       printString += "\nName:\t\t\t" + Name;
-      printString += "\nDate:\t\t\t" + TournamentDate.ToString().Substring(0, TournamentDate.Date.ToString().Length - 12);
+      printString += "\nDate:\t\t\t" + TournamentDate.ToString("dd/MM/yyyy");
       printString += "\nLocation:\t\t" + Location;
       printString += "\nMax Players:\t\t" + MaxPlayers;
       printString += "\nWinning Hand:\t\t" + WinningHand;

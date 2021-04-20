@@ -54,7 +54,8 @@ namespace Poker_Tournament_App
 
       while (true){
         if (DateTime.TryParseExact(stringDate, "dd'/'MM'/'yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out date)){
-          return date.ToString("dd/MM/yyyy").Substring(0, date.ToString().Length - 11);
+          Console.WriteLine(date.ToString("dd/MM/yyyy"));
+          return date.ToString("dd/MM/yyyy");
         }
         else{
           Console.Clear();

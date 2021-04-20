@@ -81,7 +81,7 @@ namespace Poker_Tournament_App
     {
       string enteredData;
       string errorMessage;
-      List<string> prompts = new List<string>{"Name: ", "Date [mm/dd/yyyy]: ", "Location: ", "Max players: "};
+      List<string> prompts = new List<string>{"Name: ", "Date [dd/mm/yyyy]: ", "Location: ", "Max players: "};
       List<string> dataList = new List<string>();
       Tournament newTournament;
       
