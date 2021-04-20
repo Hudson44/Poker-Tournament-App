@@ -74,7 +74,7 @@ namespace Poker_Tournament_App
     }
 
     ////////////////////////////////////////
-    // alternative tournament display option
+    // alternate tournament display option
     ////////////////////////////////////////
     /*
     public static void DisplayTournament(Tournament tournament){
@@ -153,6 +153,7 @@ namespace Poker_Tournament_App
       }
     }
 
+    //edits existing tournament information
     public static void EditTournament(Tournament tournament)
     {
       string toEdit = "";
@@ -184,8 +185,8 @@ namespace Poker_Tournament_App
             tournament.Name = Console.ReadLine();
             break;
           case "2":
-            Console.WriteLine("\nEnter new date [mm/dd/yyyy]:");
-            errorMessage = "Error: invalid input \n\nEnter new date [mm/dd/yyyy]:";
+            Console.WriteLine("\nEnter new date [dd/mm/yyyy]:");
+            errorMessage = "Error: invalid input \n\nEnter new date [dd/mm/yyyy]:";
 
             tournament.TournamentDate = DateTime.Parse(Validate.ValidateDate(Console.ReadLine(), errorMessage));
             break;
@@ -223,6 +224,7 @@ namespace Poker_Tournament_App
       }
     }
 
+    //registers players to tournaments
     public static void Register(Tournament tournament){
       string toRegister = "";
 
@@ -236,7 +238,6 @@ namespace Poker_Tournament_App
         toRegister = Console.ReadLine();
 
         index = PlayerList.Players.FindIndex(Player =>  Player.LeagueNumber == toRegister);
-        Console.WriteLine(index);
 
         //check if a player with the league number exists
         if (index != -1){
@@ -273,6 +274,7 @@ namespace Poker_Tournament_App
       }
     }
 
+    //displays players registered to the selected tournament
     public static void ViewRegistered(Tournament tournament){
       Console.Clear();
       Console.WriteLine("Registered players:\n");

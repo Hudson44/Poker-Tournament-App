@@ -11,6 +11,7 @@ namespace Poker_Tournament_App
   {
     public static List<Tournament> Tournaments = new List<Tournament>();
 
+    //diplays all tournaments in specified amounts
     public static void ViewTournaments()
     {
       string selection = "";
@@ -19,6 +20,7 @@ namespace Poker_Tournament_App
       double pages;
       int page;
       
+      //list of all tournaments
       List<Tournament> DisplayList = new List<Tournament>();
 
       while (!(selection == "q")){
@@ -77,6 +79,7 @@ namespace Poker_Tournament_App
       }
     }
 
+    //collects user input to create a new tournament
     public static void NewTournament()
     {
       string enteredData;
@@ -85,11 +88,10 @@ namespace Poker_Tournament_App
       List<string> dataList = new List<string>();
       Tournament newTournament;
       
-      
       //clear list of entered data
       dataList.Clear();
 
-      //make the new tournament ID one higher than the last tournaments ID
+      //auto-increment new tournament ID
       int ID = Int32.Parse(Tournaments[Tournaments.Count - 1].TournamentID) + 1;
       dataList.Add(ID.ToString());
       
@@ -106,7 +108,7 @@ namespace Poker_Tournament_App
           enteredData = Validate.ValidateDate(enteredData, errorMessage);
         }
 
-        //makes sure player count is a non negative intiger
+        //verifies player count is a non negative intiger
         if (prompts.IndexOf(prompt) == 3){
           errorMessage = "Enter tournament data: \n\nError: invalid input \n\n" + prompt;
           enteredData = Validate.ValidateInt(enteredData, errorMessage).ToString();
@@ -126,6 +128,7 @@ namespace Poker_Tournament_App
       Console.ReadLine();
     }
 
+    //displays the specified amount of most recent tournaments
     public static void LastTournaments(){
       //sort tournaments by descending date
       TournamentList.Tournaments.Sort((x, y) => y.TournamentDate.CompareTo(x.TournamentDate));

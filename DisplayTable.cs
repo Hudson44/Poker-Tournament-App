@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace Poker_Tournament_App
 {
+  //displays data in table format
   public class DisplayTable
   {
     public static List<List<string>> tableData = new List<List<string>>();

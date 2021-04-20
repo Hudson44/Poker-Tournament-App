@@ -65,7 +65,7 @@ namespace Poker_Tournament_App
 
       while (selection != "q"){
         Console.Clear();
-        //Console.WriteLine(tournament);
+
         Console.WriteLine(inPlayer);
 
         Console.WriteLine("\n[q] quit [e] edit player");
@@ -78,9 +78,9 @@ namespace Poker_Tournament_App
       }
     }
 
+    //edits existing player information
     public static void EditPlayer(Player player)
     {
-
       string toEdit = "";
 
       while (toEdit != "q"){
@@ -105,8 +105,8 @@ namespace Poker_Tournament_App
             player.Name = Console.ReadLine();
             break;
           case "2":
-            Console.WriteLine("\nEnter new date joined [mm/dd/yyyy]:");
-            string errorMessage = "Error: invalid input \n\nEnter new date joined [mm/dd/yyyy]:";
+            Console.WriteLine("\nEnter new date joined [dd/mm/yyyy]:");
+            string errorMessage = "Error: invalid input \n\nEnter new date joined [dd/mm/yyyy]:";
 
             player.DateJoined = DateTime.Parse(Validate.ValidateDate(Console.ReadLine(), errorMessage));
             break;

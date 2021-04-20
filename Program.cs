@@ -10,6 +10,7 @@ namespace Poker_Tournament_App
     public static void Main (string[] args) {
       string selection = "";
 
+      //pull csv data
       if (!TournamentList.Tournaments.Any()){
         GetTournamentData.GetData();
       }

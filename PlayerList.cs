@@ -9,6 +9,7 @@ namespace Poker_Tournament_App{
   public static class PlayerList {
   public static List<Player> Players = new List<Player>();
    
+  //diplays all players in specified amounts
   public static void ViewPlayers()
   {
     
@@ -77,7 +78,6 @@ namespace Poker_Tournament_App{
         }
 
         //Select a player with SelectPlayer if their league number is entered
-
         playerIndex = PlayerList.Players.FindIndex(thisPlayer => thisPlayer.LeagueNumber == selection);
 
         if(playerIndex != -1)
@@ -94,6 +94,7 @@ namespace Poker_Tournament_App{
       }
     }
 
+    //collects user input to create a new player
     public static void NewPlayer()
     {
       string enteredData;
@@ -139,6 +140,7 @@ namespace Poker_Tournament_App{
       Console.ReadLine();
     }
 
+    //displays top 10 players
     public static void TopTen(){
       //sort players by descending rank chips
       PlayerList.Players.Sort((x, y) => y.RankChips.CompareTo(x.RankChips));
