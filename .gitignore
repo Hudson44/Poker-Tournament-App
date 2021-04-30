@@ -91,3 +91,4 @@ msbuild.wrn
 .vs/
 
 obj/**
+core.*

@@ -23,22 +23,23 @@ namespace Poker_Tournament_App
                     //Player information from csv file
                     string line = reader.ReadLine();
                     string[] values = line.Split(',');
-                    Dictionary<string, int> numWinninghands = new Dictionary<string, int>();
+                    Dictionary<string, int> numWinningHands = new Dictionary<string, int>();
                     string header;
                     string valueString;
                     int valueInt;
                     for (int i = 6; i < 15; i++)
                     {
-                        header = headers[i+1];
+                        
+                        header = headers[i];
                         valueString = values[i+1];
                         if (valueString == ""){
                             valueInt = 0;
                         
                         }else{
-                            valueInt = Int32.Parse((values[i + 1]));
+                            valueInt = Int32.Parse((valueString));
                         
                         }
-                        numWinninghands.Add(header, valueInt);
+                        numWinningHands.Add(header, valueInt);
                         Console.WriteLine($"");
                     }
 
@@ -49,7 +50,7 @@ namespace Poker_Tournament_App
 
 
 
-                    newPlayer = new Player((values[0] + "," + values[1]).Replace("\"", ""), values[3], values[4], values[5]);
+                    newPlayer = new Player((values[0] + "," + values[1]).Replace("\"", ""), values[3], values[4], values[5], numWinningHands);
                     PlayerList.Players.Add(newPlayer);
                 }
             }
