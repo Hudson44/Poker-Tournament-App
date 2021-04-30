@@ -31,13 +31,13 @@ namespace Poker_Tournament_App
             //RankChips = inRankChips;
         }
 
-        public Player(string inName, string inDateJoined, string inBirthday, string inHometown, int[] numWinningHands)
+        public Player(string inName, string inDateJoined, string inBirthday, string inHometown,  Dictionary<string,int> numWinningHands)
         {
             Name = inName;
             DateJoined = inDateJoined;
             Birthday = inBirthday;
             Hometown = inHometown;
-            //for (int )
+            WinningHandCount = numWinningHands;
             
            
         }

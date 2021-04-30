@@ -24,24 +24,32 @@ namespace Poker_Tournament_App
                     string line = reader.ReadLine();
                     string[] values = line.Split(',');
                     Dictionary<string, int> numWinninghands = new Dictionary<string, int>();
-
+                    string header;
+                    string valueString;
+                    int valueInt;
                     for (int i = 6; i < 15; i++)
                     {
-                        if (values[i + 1] == "")
-                            numWinninghands.Add(headers[i + 1], 0);
-                        else
-                            numWinninghands.Add(headers[i + 1], Int32.Parse(values[i + 1]));
-                        Console.WriteLine($"{numWinninghands.Keys(numWinninghands[name]) }");
+                        header = headers[i+1];
+                        valueString = values[i+1];
+                        if (valueString == ""){
+                            valueInt = 0;
+                        
+                        }else{
+                            valueInt = Int32.Parse((values[i + 1]));
+                        
+                        }
+                        numWinninghands.Add(header, valueInt);
+                        Console.WriteLine($"");
                     }
-                   
-                                        //Player winning hand from csv file
+
+                    //Player winning hand from csv file
 
 
-                                        //int index = Array.IndexOf(values, value);
+                    //int index = Array.IndexOf(values, value);
 
 
 
-                                        newPlayer = new Player((values[0] + "," + values[1]).Replace("\"", ""), values[3], values[4], values[5]);
+                    newPlayer = new Player((values[0] + "," + values[1]).Replace("\"", ""), values[3], values[4], values[5]);
                     PlayerList.Players.Add(newPlayer);
                 }
             }
