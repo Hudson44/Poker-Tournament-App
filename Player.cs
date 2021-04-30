@@ -9,7 +9,7 @@ namespace Poker_Tournament_App
         public string DateJoined {get; set;} 
         public string Birthday {get; set;} 
         public string Hometown {get; set;}
-        public int RankChips {get; set;}
+        
 
         public Dictionary<string, int> WinningHandCount = new Dictionary<string, int>();
 
@@ -19,18 +19,28 @@ namespace Poker_Tournament_App
             DateJoined = "";
             Birthday = "";
             Hometown = "";
-            RankChips = 0;
+            //RankChips = 0;
         }
 
-        public Player(string inName, string inDateJoined, string inBirthday, string inHometown, int inRankChips)
+        public Player(string inName, string inDateJoined, string inBirthday, string inHometown)
         {
             Name = inName;
             DateJoined = inDateJoined;
             Birthday = inBirthday;
             Hometown = inHometown;
-            RankChips = inRankChips;
+            //RankChips = inRankChips;
         }
 
+        public Player(string inName, string inDateJoined, string inBirthday, string inHometown, int[] numWinningHands)
+        {
+            Name = inName;
+            DateJoined = inDateJoined;
+            Birthday = inBirthday;
+            Hometown = inHometown;
+            //for (int )
+            
+           
+        }
         public void updateWinningHandCount(string inHandType)
         {
             if(WinningHandCount.ContainsKey(inHandType))
@@ -50,7 +60,7 @@ namespace Poker_Tournament_App
             printString += "\nDate Joined:\t" + DateJoined;
             printString += "\nBirthday:\t" + Birthday;
             printString += "\nHometown:\t" + Hometown;
-            printString += "\nRank Chips:\t" + RankChips;
+            //printString += "\nRank Chips:\t" + RankChips;
             printString += "\nWinning Hands:\n" + string.Join(Environment.NewLine, WinningHandCount);
             return printString;
         }

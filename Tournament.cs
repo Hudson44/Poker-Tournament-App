@@ -86,8 +86,8 @@ namespace Poker_Tournament_App
         {
             Registrants.Add(player);
 
-            return player.RankChips;
-
+            //return player.RankChips;
+        return 1;
 
 
         }
