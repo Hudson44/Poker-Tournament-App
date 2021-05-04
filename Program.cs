@@ -30,6 +30,7 @@ namespace Poker_Tournament_App
                 Console.WriteLine("2: Players");
                 Console.WriteLine("3: Overall Stats");
                 Console.WriteLine("4: Save & Quit");
+                Console.WriteLine("5: Total Ranked Chips");
                 selection = Console.ReadLine();
                 
 
@@ -44,6 +45,11 @@ namespace Poker_Tournament_App
                 else if (selection == "3")
                 {
                     Console.WriteLine("Overall Stats.");
+                }
+                else if (selection == "5")
+                {
+                      Console.WriteLine(PlayerList.GetTotalChips());
+                      Console.ReadLine();
                 }
             }
         }
