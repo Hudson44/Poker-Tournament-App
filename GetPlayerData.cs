@@ -27,17 +27,21 @@ namespace Poker_Tournament_App
                     string header;
                     string valueString;
                     int valueInt;
+                    int rankedChips = 0;
                     for (int i = 6; i < 15; i++)
                     {
-                        
+
                         header = headers[i];
-                        valueString = values[i+1];
-                        if (valueString == ""){
+                        valueString = values[i + 1];
+                        if (valueString == "")
+                        {
                             valueInt = 0;
-                        
-                        }else{
+
+                        }
+                        else
+                        {
                             valueInt = Int32.Parse((valueString));
-                        
+
                         }
                         numWinningHands.Add(header, valueInt);
                         Console.WriteLine($"");
@@ -48,9 +52,23 @@ namespace Poker_Tournament_App
 
                     //int index = Array.IndexOf(values, value);
 
+                    //Calcualte Rankedchips here
+                    String name = (values[0] + "," + values[1]).Replace("\"", "");
 
-
-                    newPlayer = new Player((values[0] + "," + values[1]).Replace("\"", ""), values[3], values[4], values[5], numWinningHands);
+                    foreach (Tournament tournament in TournamentList.Tournaments)
+                    {
+                        if (name == tournament.FirstPlace)
+                            rankedChips += 4;
+                            else if (name == tournament.SecondPlace)
+                            rankedChips += 3;
+                            else if (name == tournament.ThirdPlace)
+                            rankedChips += 2;
+                            else if (name == tournament.FourthPlace)
+                            rankedChips += 1;
+                        
+                    }
+                    
+                    newPlayer = new Player(name, values[3], values[4], values[5], numWinningHands, rankedChips);
                     PlayerList.Players.Add(newPlayer);
                 }
             }
