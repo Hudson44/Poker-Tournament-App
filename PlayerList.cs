@@ -13,8 +13,10 @@ namespace Poker_Tournament_App
             foreach (Player player in Players)
             {
             total += player.RankChips;
+            Console.WriteLine(player.Name + player.RankChips);
             }
             return total;
+          
         }
 
     }
