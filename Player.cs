@@ -64,7 +64,7 @@ namespace Poker_Tournament_App
             //print out WinningHandCount all of the keys and values.
             foreach (KeyValuePair<string, int> hand in WinningHandCount)
 
-                printString += "\t" + hand.Key +":\t\t" + hand.Value + "\n";
+                printString += "\t" + (hand.Key +":").PadRight(20) + hand.Value.ToString().PadLeft(3) + "\n";
 
         
 
